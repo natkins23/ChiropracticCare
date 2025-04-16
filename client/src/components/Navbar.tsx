@@ -271,21 +271,12 @@ const Navbar = () => {
               Contact
             </a>
             
-            {/* CTA Buttons */}
-            <div className="flex items-center pl-2 space-x-2">
-              {/* Symptom Quiz Button */}
-              <a 
-                href="#quiz" 
-                className="flex items-center text-primary border border-primary hover:bg-primary hover:text-white font-medium text-sm lg:text-base px-3 py-2 rounded-md transition-colors duration-200"
-                onClick={(e) => { e.preventDefault(); scrollToSection("quiz"); }}
-              >
-                <span className="hidden sm:inline">Symptom</span> Quiz
-              </a>
-              
+            {/* CTA Button */}
+            <div className="flex items-center pl-2">
               {/* Book Now Button */}
               <a 
                 href="#contact" 
-                className="flex items-center bg-orange-500 text-white hover:bg-orange-600 font-medium text-sm lg:text-base px-3 py-2 rounded-md transition-colors duration-200"
+                className="flex items-center bg-orange-500 text-white hover:bg-orange-600 font-medium text-sm lg:text-base px-4 py-2 rounded-md transition-colors duration-200"
                 onClick={(e) => { e.preventDefault(); scrollToSection("contact"); }}
               >
                 <Calendar className="mr-1 h-4 w-4" />
@@ -419,14 +410,7 @@ const Navbar = () => {
             Contact
           </a>
           
-          {/* Mobile Quiz CTA */}
-          <a 
-            href="#quiz" 
-            className="flex items-center justify-center bg-primary text-white hover:bg-blue-600 font-medium text-lg px-3 py-3 rounded-md transition-colors duration-200 mt-2"
-            onClick={(e) => { e.preventDefault(); scrollToSection("quiz"); }}
-          >
-            Take Our Symptom Quiz
-          </a>
+
         </div>
       </div>
     </header>

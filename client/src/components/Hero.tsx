@@ -16,7 +16,7 @@ const Hero = () => {
   };
 
   return (
-    <section id="home" className="pt-24 md:pt-32 pb-16 md:pb-24 px-4 sm:px-6 lg:px-8 bg-gray-50">
+    <section id="home" className="pt-32 md:pt-40 pb-16 md:pb-24 px-4 sm:px-6 lg:px-8 bg-gray-50">
       <div className="max-w-7xl mx-auto">
         <div className="lg:flex items-center">
           <motion.div 

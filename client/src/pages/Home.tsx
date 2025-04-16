@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import Navbar from "@/components/Navbar";
+import QuizBanner from "@/components/QuizBanner";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
 import Services from "@/components/Services";
@@ -32,6 +33,7 @@ const Home = () => {
   return (
     <div className="font-sans text-text-dark bg-white">
       <Navbar />
+      <QuizBanner />
       <Hero />
       <About />
       <Services />
