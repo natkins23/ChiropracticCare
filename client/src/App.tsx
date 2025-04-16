@@ -7,7 +7,7 @@ import Home from "@/pages/Home";
 import ConditionsWeTreat from "@/pages/ConditionsWeTreat";
 import BackPainTreatment from "@/pages/BackPainTreatment";
 import NeckPainTreatment from "@/pages/NeckPainTreatment";
-import HipPainTreatment from "@/pages/HipPainTreatment";
+import HipPainTreatment from "./pages/HipPainTreatment";
 
 function Router() {
   return (

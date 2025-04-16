@@ -18,79 +18,79 @@ const conditions: ConditionCard[] = [
     title: "Back Pain",
     description: "We help relieve chronic and acute back pain using precise chiropractic techniques tailored to your body.",
     imagePrompt: "A person holding their lower back in pain, in a bright, clean clinic setting",
-    link: "/services/back-pain"
+    link: "/conditions/back-pain"
   },
   {
     title: "Neck Pain",
     description: "Reduce stiffness and discomfort with gentle neck adjustments and postural correction.",
     imagePrompt: "A woman touching her neck with discomfort, side profile, soft lighting",
-    link: "/services/neck-pain"
+    link: "/conditions/neck-pain"
   },
   {
     title: "Hip Pain",
     description: "Targeted adjustments and therapy to improve hip joint function and mobility.",
     imagePrompt: "A person stretching their hip, side lunge position, fitness studio background",
-    link: "/services/hip-pain"
+    link: "/conditions/hip-pain"
   },
   {
     title: "Knee Pain",
     description: "Chiropractic care and movement correction for painful or unstable knees.",
     imagePrompt: "Close-up of a person holding their knee while sitting on an exam table",
-    link: "/services/knee-pain"
+    link: "/conditions/knee-pain"
   },
   {
     title: "Sciatica",
     description: "Stop radiating leg pain caused by sciatic nerve compression with personalized care.",
     imagePrompt: "An anatomical illustration of the sciatic nerve with glowing pain area",
-    link: "/services/sciatica"
+    link: "/conditions/sciatica"
   },
   {
     title: "Carpal Tunnel",
     description: "Numbness, tingling, or wrist pain? We offer natural relief for carpal tunnel syndrome.",
     imagePrompt: "Hands resting on a keyboard with wrist brace, warm-toned office background",
-    link: "/services/carpal-tunnel"
+    link: "/conditions/carpal-tunnel"
   },
   {
     title: "Tension Headaches",
     description: "Alleviate chronic headaches rooted in spinal tension or neck strain.",
     imagePrompt: "Person with eyes closed holding forehead, in a calming wellness space",
-    link: "/services/tension-headaches"
+    link: "/conditions/tension-headaches"
   },
   {
     title: "Whiplash",
     description: "Post-accident recovery care for neck injuries, pain, and stiffness.",
     imagePrompt: "Rearview mirror scene showing a car accident with highlighted neck pain overlay",
-    link: "/services/whiplash"
+    link: "/conditions/whiplash"
   },
   {
     title: "Pinched Nerve",
     description: "Reduce nerve pressure and restore function with safe, effective adjustments.",
     imagePrompt: "Spine model or medical rendering showing a pinched nerve in red",
-    link: "/services/pinched-nerve"
+    link: "/conditions/pinched-nerve"
   },
   {
     title: "Cervical Disc Herniation",
     description: "We treat disc bulges and herniations with non-surgical spinal decompression.",
     imagePrompt: "Cross-section illustration of a cervical disc herniation with soft background",
-    link: "/services/cervical-disc-hernation"
+    link: "/conditions/cervical-disc-hernation"
   },
   {
     title: "Pediatric Chiropractic",
     description: "Gentle, kid-friendly care for posture issues, growing pains, and sports injuries.",
     imagePrompt: "Chiropractor smiling while gently adjusting a toddler or young child",
-    link: "/services/pediatric"
+    link: "/conditions/pediatric"
   },
   {
     title: "Auto Accident Injuries",
     description: "Treat pain and mobility loss after collisions with expert recovery care.",
     imagePrompt: "Injured person holding neck while standing near a car, soft vignette style",
-    link: "/services/auto-accident"
+    link: "/conditions/auto-accident"
   },
   {
     title: "Sports Injury",
     description: "Get back in the game with chiropractic recovery programs for athletes.",
     imagePrompt: "Athlete on a field holding hamstring or ankle in pain, sunny outdoor shot",
-    link: "/services/sports-injury"
+    link: "/conditions/sports-injury"
   }
 ];
 
