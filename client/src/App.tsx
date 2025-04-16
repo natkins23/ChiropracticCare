@@ -8,6 +8,8 @@ import ConditionsWeTreat from "@/pages/ConditionsWeTreat";
 import BackPainTreatment from "@/pages/BackPainTreatment";
 import NeckPainTreatment from "@/pages/NeckPainTreatment";
 import HipPainTreatment from "./pages/HipPainTreatment";
+import KneePainTreatment from "./pages/KneePainTreatment";
+import SciaticaTreatment from "./pages/SciaticaTreatment";
 
 function Router() {
   return (
@@ -17,6 +19,8 @@ function Router() {
       <Route path="/conditions/back-pain" component={BackPainTreatment} />
       <Route path="/conditions/neck-pain" component={NeckPainTreatment} />
       <Route path="/conditions/hip-pain" component={HipPainTreatment} />
+      <Route path="/conditions/knee-pain" component={KneePainTreatment} />
+      <Route path="/conditions/sciatica" component={SciaticaTreatment} />
       <Route component={NotFound} />
     </Switch>
   );
