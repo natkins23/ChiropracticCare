@@ -7,14 +7,16 @@ import Home from "@/pages/Home";
 import ConditionsWeTreat from "@/pages/ConditionsWeTreat";
 import BackPainTreatment from "@/pages/BackPainTreatment";
 import NeckPainTreatment from "@/pages/NeckPainTreatment";
+import HipPainTreatment from "@/pages/HipPainTreatment";
 
 function Router() {
   return (
     <Switch>
       <Route path="/" component={Home} />
       <Route path="/conditions" component={ConditionsWeTreat} />
-      <Route path="/services/back-pain" component={BackPainTreatment} />
-      <Route path="/services/neck-pain" component={NeckPainTreatment} />
+      <Route path="/conditions/back-pain" component={BackPainTreatment} />
+      <Route path="/conditions/neck-pain" component={NeckPainTreatment} />
+      <Route path="/conditions/hip-pain" component={HipPainTreatment} />
       <Route component={NotFound} />
     </Switch>
   );

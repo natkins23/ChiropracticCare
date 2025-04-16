@@ -6,7 +6,7 @@ import { Link, useLocation } from "wouter";
 const conditionsData = [
   { name: "Back Pain", link: "/conditions/back-pain" },
   { name: "Neck Pain", link: "/conditions/neck-pain" },
-  { name: "Hip Pain", link: "/#services" },
+  { name: "Hip Pain", link: "/conditions/hip-pain" },
   { name: "Knee Pain", link: "/#services" },
   { name: "Sciatica", link: "/#services" },
   { name: "Carpal Tunnel", link: "/#services" },
