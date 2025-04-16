@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { Menu, X, ChevronDown, ChevronRight } from "lucide-react";
+import { Menu, X, ChevronDown, ChevronRight, Calendar } from "lucide-react";
 
 // Data for the two dropdown menus
 const conditionsData = [
@@ -122,7 +122,7 @@ const Navbar = () => {
   return (
     <header className={`fixed w-full top-0 z-50 bg-white ${isScrolled ? "shadow-md" : ""} transition-shadow`}>
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between h-20">
+        <div className="flex justify-between items-center h-20">
           <div className="flex items-center">
             <a href="#" className="flex-shrink-0 flex items-center" onClick={(e) => { e.preventDefault(); scrollToSection("home"); }}>
               <span className="text-primary font-bold text-xl md:text-2xl">Dr. Carter Chiropractic</span>
@@ -270,10 +270,42 @@ const Navbar = () => {
             >
               Contact
             </a>
+            
+            {/* CTA Buttons */}
+            <div className="flex items-center pl-2 space-x-2">
+              {/* Symptom Quiz Button */}
+              <a 
+                href="#quiz" 
+                className="flex items-center text-primary border border-primary hover:bg-primary hover:text-white font-medium text-sm lg:text-base px-3 py-2 rounded-md transition-colors duration-200"
+                onClick={(e) => { e.preventDefault(); scrollToSection("quiz"); }}
+              >
+                <span className="hidden sm:inline">Symptom</span> Quiz
+              </a>
+              
+              {/* Book Now Button */}
+              <a 
+                href="#contact" 
+                className="flex items-center bg-orange-500 text-white hover:bg-orange-600 font-medium text-sm lg:text-base px-3 py-2 rounded-md transition-colors duration-200"
+                onClick={(e) => { e.preventDefault(); scrollToSection("contact"); }}
+              >
+                <Calendar className="mr-1 h-4 w-4" />
+                Book Now
+              </a>
+            </div>
           </div>
           
           {/* Mobile menu button */}
-          <div className="md:hidden flex items-center">
+          <div className="md:hidden flex items-center space-x-3">
+            {/* Mobile Book Now Button */}
+            <a 
+              href="#contact" 
+              className="flex items-center bg-orange-500 text-white hover:bg-orange-600 font-medium text-sm px-3 py-2 rounded-md transition-colors duration-200"
+              onClick={(e) => { e.preventDefault(); scrollToSection("contact"); }}
+            >
+              Book Now
+            </a>
+            
+            {/* Mobile menu toggle */}
             <button 
               aria-label="Toggle mobile menu" 
               className="text-gray-500 hover:text-primary focus:outline-none focus:ring-2 focus:ring-primary p-1"
@@ -385,6 +417,15 @@ const Navbar = () => {
             onClick={(e) => { e.preventDefault(); scrollToSection("contact"); }}
           >
             Contact
+          </a>
+          
+          {/* Mobile Quiz CTA */}
+          <a 
+            href="#quiz" 
+            className="flex items-center justify-center bg-primary text-white hover:bg-blue-600 font-medium text-lg px-3 py-3 rounded-md transition-colors duration-200 mt-2"
+            onClick={(e) => { e.preventDefault(); scrollToSection("quiz"); }}
+          >
+            Take Our Symptom Quiz
           </a>
         </div>
       </div>
