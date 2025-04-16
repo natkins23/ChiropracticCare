@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+    <title>Dr. James Carter Chiropractic | Gentle, Effective Pain Relief</title>
+    <meta name="description" content="Experience gentle, effective chiropractic care with Dr. James Carter. Relief from back pain, neck tension, and more. Schedule your appointment today.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+      /* Focus styles for accessibility */
+      *:focus-visible {
+        outline: 2px solid #3B82F6;
+        outline-offset: 2px;
+      }
+      
+      /* Respect prefers-reduced-motion */
+      @media (prefers-reduced-motion: reduce) {
+        .animate-fade, .animate-slide {
+          animation: none !important;
+          transition: none !important;
+        }
+      }
+      
+      /* Simple fade-in animation */
+      .animate-fade {
+        opacity: 0;
+        transition: opacity 0.8s ease-in-out;
+      }
+      
+      .animate-fade.active {
+        opacity: 1;
+      }
+      
+      /* Simple slide-in animation */
+      .animate-slide {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out;
+      }
+      
+      .animate-slide.active {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+    <!-- This is a replit script which adds a banner on the top of the page when opened in development mode outside the replit environment -->
+    <script type="text/javascript" src="https://replit.com/public/js/replit-dev-banner.js"></script>
+  </body>
+</html>
