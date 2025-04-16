@@ -1,26 +1,73 @@
 import { motion } from 'framer-motion';
-import { MapPin, Phone, Mail, Clock } from 'lucide-react';
+import { MapPin, Phone, Mail, Clock, ExternalLink } from 'lucide-react';
+import { useEffect, useRef } from 'react';
 
 const ClinicInfo = () => {
+  const mapRef = useRef<HTMLIFrameElement>(null);
+  
+  // Office location coordinates for Pasadena
+  const location = {
+    address: "123 Main St, Pasadena, CA 91101",
+    lat: 34.1478,
+    lng: -118.1445,
+  };
+
+  // Handle map loading animations
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && mapRef.current) {
+          // Delay loading to ensure smooth animation
+          setTimeout(() => {
+            mapRef.current?.classList.remove('opacity-0');
+            mapRef.current?.classList.add('opacity-100');
+          }, 300);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (mapRef.current) {
+      observer.observe(mapRef.current);
+    }
+
+    return () => {
+      if (mapRef.current) {
+        observer.unobserve(mapRef.current);
+      }
+    };
+  }, []);
+
   return (
     <section id="contact" className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-white">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16 animate-fade">
+        <motion.div 
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+        >
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Visit Us</h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
             We're conveniently located in downtown Pasadena with ample parking nearby.
           </p>
-        </div>
+        </motion.div>
         
         <div className="grid md:grid-cols-2 gap-10 items-start">
-          <div className="animate-slide">
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
             <div className="bg-gray-50 p-8 rounded-lg shadow-sm">
               <div className="space-y-6">
                 <div className="flex items-start">
                   <MapPin className="h-6 w-6 text-blue-500 mt-1 flex-shrink-0" />
                   <div className="ml-4">
                     <p className="font-medium">Address</p>
-                    <p className="text-gray-600">123 Main St, Pasadena, CA 91101</p>
+                    <p className="text-gray-600">{location.address}</p>
                   </div>
                 </div>
                 
@@ -50,7 +97,7 @@ const ClinicInfo = () => {
                 </div>
               </div>
               
-              <div className="mt-8">
+              <div className="mt-8 space-y-3">
                 <a 
                   href="tel:6265551234" 
                   className="inline-flex justify-center items-center w-full px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-blue-500 hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors"
@@ -58,20 +105,53 @@ const ClinicInfo = () => {
                   <Phone className="h-5 w-5 mr-2" />
                   Call Now
                 </a>
+                
+                <a 
+                  href={`https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(location.address)}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex justify-center items-center w-full px-6 py-3 border border-blue-500 text-base font-medium rounded-md shadow-sm text-blue-500 bg-white hover:bg-blue-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors"
+                >
+                  <ExternalLink className="h-5 w-5 mr-2" />
+                  Get Directions
+                </a>
               </div>
             </div>
-          </div>
+          </motion.div>
           
-          <div className="animate-slide">
-            {/* Google Map Placeholder */}
-            <div className="rounded-lg overflow-hidden shadow-sm h-96 bg-gray-200 flex items-center justify-center">
-              <div className="text-center p-8">
-                <MapPin className="h-12 w-12 text-blue-500 mx-auto mb-4" />
-                <p className="text-gray-600 text-lg font-medium">Google Maps Integration</p>
-                <p className="text-gray-600 mt-2">Interactive map showing office location and directions.</p>
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            viewport={{ once: true }}
+            className="h-full"
+          >
+            <div className="rounded-lg overflow-hidden shadow-md h-96 bg-gray-100 relative">
+              <iframe
+                ref={mapRef}
+                src={`https://www.google.com/maps/embed/v1/place?key=AIzaSyD-9tSrke72PouQMnMX-a7eZSW0jkFMBWY&q=${encodeURIComponent(location.address)}&zoom=15`}
+                className="absolute inset-0 w-full h-full opacity-0 transition-opacity duration-500"
+                loading="lazy"
+                title="Google Maps showing clinic location"
+                allowFullScreen
+              ></iframe>
+
+              {/* This div acts as a placeholder while the map is loading */}
+              <div className="absolute inset-0 flex items-center justify-center bg-gray-200 z-0">
+                <div className="text-center p-8">
+                  <MapPin className="h-12 w-12 text-blue-500 mx-auto mb-4 animate-bounce" />
+                  <p className="text-gray-600 text-lg font-medium">Loading Map...</p>
+                  <p className="text-gray-600 mt-2">
+                    See our location at {location.address}
+                  </p>
+                </div>
               </div>
             </div>
-          </div>
+            
+            <div className="mt-4 text-sm text-gray-500 italic">
+              Note: This map uses a demo API key for display purposes. In a production environment, you would use your own Google Maps API key.
+            </div>
+          </motion.div>
         </div>
       </div>
     </section>

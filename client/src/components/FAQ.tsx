@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
 
 interface FAQItem {
@@ -37,37 +37,98 @@ const FAQ = () => {
     setOpenIndex(openIndex === index ? null : index);
   };
 
+  // Animation variants for smoother transitions
+  const accordionVariants = {
+    hidden: { 
+      opacity: 0,
+      height: 0,
+      padding: "0px 24px"
+    },
+    visible: { 
+      opacity: 1,
+      height: "auto",
+      padding: "0px 24px 24px 24px",
+      transition: { 
+        height: {
+          duration: 0.4,
+          ease: [0.04, 0.62, 0.23, 0.98]
+        },
+        opacity: { 
+          duration: 0.25,
+          delay: 0.15
+        }
+      }
+    }
+  };
+
+  const iconVariants = {
+    closed: { rotate: 0, transition: { duration: 0.4, ease: [0.04, 0.62, 0.23, 0.98] } },
+    open: { rotate: 180, transition: { duration: 0.4, ease: [0.04, 0.62, 0.23, 0.98] } }
+  };
+
   return (
     <section id="faq" className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-white">
       <div className="max-w-4xl mx-auto">
-        <div className="text-center mb-16 animate-fade">
+        <motion.div 
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+        >
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Common Questions</h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
             Get answers to frequently asked questions about our services, insurance, and what to expect.
           </p>
-        </div>
+        </motion.div>
         
-        <div className="space-y-6 animate-slide">
+        <motion.div 
+          className="space-y-6"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ staggerChildren: 0.15, duration: 0.8 }}
+          viewport={{ once: true }}
+        >
           {faqs.map((faq, index) => (
-            <div key={index} className="border border-gray-200 rounded-lg overflow-hidden">
+            <motion.div 
+              key={index} 
+              className="border border-gray-200 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow"
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+            >
               <button 
-                className="w-full flex justify-between items-center p-6 focus:outline-none focus:ring-2 focus:ring-blue-500 text-left"
+                className="w-full flex justify-between items-center p-6 focus:outline-none focus:ring-2 focus:ring-blue-500 text-left bg-white hover:bg-gray-50 transition-colors"
                 aria-expanded={openIndex === index}
                 onClick={() => toggleFAQ(index)}
               >
                 <span className="text-lg font-medium">{faq.question}</span>
-                <ChevronDown 
-                  className={`h-5 w-5 text-blue-500 transition-transform ${openIndex === index ? 'transform rotate-180' : ''}`}
-                />
+                <motion.div
+                  variants={iconVariants}
+                  animate={openIndex === index ? "open" : "closed"}
+                >
+                  <ChevronDown className="h-5 w-5 text-blue-500" />
+                </motion.div>
               </button>
-              <div 
-                className={`px-6 pb-6 transition-all duration-200 ease-in-out ${openIndex === index ? 'block' : 'hidden'}`}
-              >
-                <p className="text-gray-600">{faq.answer}</p>
-              </div>
-            </div>
+              
+              <AnimatePresence initial={false}>
+                {openIndex === index && (
+                  <motion.div 
+                    key={`content-${index}`}
+                    initial="hidden"
+                    animate="visible"
+                    exit="hidden"
+                    variants={accordionVariants}
+                    className="overflow-hidden"
+                  >
+                    <p className="text-gray-600">{faq.answer}</p>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
