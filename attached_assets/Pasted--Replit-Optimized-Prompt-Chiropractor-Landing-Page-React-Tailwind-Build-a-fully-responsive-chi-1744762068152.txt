@@ -1,0 +1,117 @@
+✅ Replit-Optimized Prompt: Chiropractor Landing Page (React + Tailwind)
+Build a fully responsive chiropractor landing page using React and Tailwind CSS. The design should work beautifully across mobile and desktop and be simple to host as a static HTML page on Firebase.
+
+The site should feel clean, calming, and professional. Don’t overcomplicate it — just deliver a sleek, single-page experience with strong typography, section spacing, and a clear visual hierarchy.
+
+🧱 Page Sections and Content
+1. Navigation Bar
+Sticky at top, visible on all screen sizes
+
+Links: Home, About, Services, Testimonials, FAQ, Contact
+
+2. Hero Section
+text
+Copy
+Edit
+Headline: Relief Starts Here.
+Subtext: Experience gentle, effective chiropractic care tailored to your needs. Whether you're dealing with back pain, neck tension, or recovering from injury — we’re here to help.
+Buttons: Book Now, Call Today
+3. About Section
+text
+Copy
+Edit
+Title: Meet Dr. James Carter
+Body: With over 10 years of experience helping patients relieve pain and restore mobility, Dr. Carter takes a personalized approach to chiropractic care. Certified, compassionate, and committed to your health — you're in good hands.
+Image: Headshot of Dr. Carter
+4. Services Section
+text
+Copy
+Edit
+Title: What We Treat
+Each item has an icon, title, and description.
+
+🦴 Back Pain — Relief for chronic and acute lower back issues.  
+💢 Neck Pain — Gentle adjustments to ease stiffness and pain.  
+🏃‍♂️ Sports Injuries — Rehab for sprains, strains, and soreness.  
+🧘‍♀️ Posture Issues — Realignment to support posture and comfort.  
+🪑 Sciatica — Targeted relief for radiating nerve pain.
+5. Testimonials Section
+text
+Copy
+Edit
+Title: Hear From Our Patients
+
+“Dr. Carter helped me get back on my feet after a car accident. Kind, professional, and super effective.” — Samantha M. ★★★★★
+
+“I've seen a lot of chiropractors. Dr. Carter is by far the best — you can feel he really cares.” — Luis G. ★★★★★
+6. Symptom Checker Quiz
+text
+Copy
+Edit
+Title: Where Does It Hurt?
+
+Q1: Where are you feeling pain?
+Options: Neck, Lower Back, Mid Back, Shoulders, Hips/Legs
+
+Q2: How long have you had this issue?
+Options: Less than a week, 1–4 weeks, Over a month
+
+Q3: Have you seen a chiropractor before?
+Options: Yes, No
+
+→ After completion, route user to a matching service section or open a contact form pre-filled with quiz input.
+7. FAQ Section
+text
+Copy
+Edit
+Title: Common Questions
+
+Q: Do you take insurance?  
+A: Yes, we work with most major providers. Contact us to confirm coverage.
+
+Q: What should I expect on my first visit?  
+A: A full assessment, discussion of your symptoms, and gentle initial adjustment.
+
+Q: How many sessions will I need?  
+A: It varies — we’ll customize your care based on progress and comfort.
+8. Trust Badges
+text
+Copy
+Edit
+Title: Trusted & Certified
+- ✅ Board Certified Chiropractor
+- ⭐ Top Rated in Pasadena (2024)
+- 🩺 Partnered with Blue Shield, Aetna, Kaiser
+9. Clinic Info
+text
+Copy
+Edit
+Title: Visit Us
+📍 123 Main St, Pasadena, CA  
+📞 (626) 555-1234  
+📧 contact@drcarterchiro.com  
+🕘 Mon–Fri: 9am–6pm | Sat: 10am–2pm  
+(Google Map embed placeholder)
+10. Bottom Call to Action
+text
+Copy
+Edit
+Headline: Feel Better Starting Today.
+Subtext: Don’t wait to start feeling like yourself again. Book your first adjustment today and take the first step toward relief.
+Buttons: Schedule Adjustment, Free Consultation
+11. Footer
+text
+Copy
+Edit
+© 2025 Dr. James Carter Chiropractic. All rights reserved.  
+[Privacy Policy] — [Instagram] — [Facebook]
+🎨 Design Notes (AI Instructions)
+Use soft blue and white tones, modern sans-serif font (Inter or Lato), and full-width spacing with good padding.
+
+All sections should be mobile-first and responsive.
+
+Add focus-visible styles, semantic headings, alt text on images, and respect prefers-reduced-motion.
+
+Use Tailwind's utilities for spacing, color, responsiveness, and font styles.
+
+Animate sections subtly on scroll using framer-motion or CSS transitions.
