@@ -4,33 +4,33 @@ import { Link, useLocation } from "wouter";
 
 // Data for the two dropdown menus
 const conditionsData = [
-  "Back Pain",
-  "Neck Pain",
-  "Hip Pain",
-  "Knee Pain",
-  "Sciatica",
-  "Carpal Tunnel",
-  "Tension Headaches",
-  "Whiplash",
-  "Pinched Nerve",
-  "Cervical Disc Herniation",
-  "Pediatric",
-  "Auto Accident Injuries",
-  "Sports Injury",
+  { name: "Back Pain", link: "/conditions/back-pain" },
+  { name: "Neck Pain", link: "/conditions/neck-pain" },
+  { name: "Hip Pain", link: "/#services" },
+  { name: "Knee Pain", link: "/#services" },
+  { name: "Sciatica", link: "/#services" },
+  { name: "Carpal Tunnel", link: "/#services" },
+  { name: "Tension Headaches", link: "/#services" },
+  { name: "Whiplash", link: "/#services" },
+  { name: "Pinched Nerve", link: "/#services" },
+  { name: "Cervical Disc Herniation", link: "/#services" },
+  { name: "Pediatric", link: "/#services" },
+  { name: "Auto Accident Injuries", link: "/#services" },
+  { name: "Sports Injury", link: "/#services" },
 ];
 
 const therapiesData = [
-  "Chiropractic Care",
-  "Massage Therapy",
-  "Myofascial Release",
-  "Graston Soft Tissue Release",
-  "Corrective Exercises",
-  "Spinal Decompression",
-  "Shockwave Therapy",
-  "Service Areas (Pasadena, Altadena, San Marino)",
-  "Same-Day Appointments",
-  "Personal Injury Cases",
-  "Family Chiropractic",
+  { name: "Chiropractic Care", link: "/#services" },
+  { name: "Massage Therapy", link: "/#services" },
+  { name: "Myofascial Release", link: "/#services" },
+  { name: "Graston Soft Tissue Release", link: "/#services" },
+  { name: "Corrective Exercises", link: "/#services" },
+  { name: "Spinal Decompression", link: "/#services" },
+  { name: "Shockwave Therapy", link: "/#services" },
+  { name: "Service Areas (Pasadena, Altadena, San Marino)", link: "/#services" },
+  { name: "Same-Day Appointments", link: "/#services" },
+  { name: "Personal Injury Cases", link: "/#services" },
+  { name: "Family Chiropractic", link: "/#services" },
 ];
 
 const Navbar = () => {
@@ -129,18 +129,14 @@ const Navbar = () => {
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           <div className="flex items-center">
-            <a
-              href="#"
-              className="flex-shrink-0 flex items-center"
-              onClick={(e) => {
-                e.preventDefault();
-                scrollToSection("home");
-              }}
+            <Link
+              href="/"
+              className="flex-shrink-0 flex items-center cursor-pointer"
             >
               <span className="text-primary font-bold text-xl md:text-2xl">
                 Dr. Carter Chiropractic
               </span>
-            </a>
+            </Link>
           </div>
 
           {/* Desktop navigation */}
@@ -198,32 +194,24 @@ const Navbar = () => {
                   <ul className="grid grid-cols-1 gap-y-2">
                     {conditionsData.map((condition, idx) => (
                       <li key={idx}>
-                        <a
-                          href="#services"
+                        <Link
+                          href={condition.link}
                           className="text-gray-700 hover:text-primary hover:underline text-base block px-2 py-1 rounded-md hover:bg-gray-50"
-                          onClick={(e) => {
-                            e.preventDefault();
-                            scrollToSection("services");
-                          }}
                         >
-                          {condition}
-                        </a>
+                          {condition.name}
+                        </Link>
                       </li>
                     ))}
                   </ul>
                 </div>
                 <div className="bg-gray-50 px-6 py-3 flex items-center justify-between">
-                  <a
-                    href="#quiz"
+                  <Link
+                    href="/#quiz"
                     className="flex items-center text-base font-medium text-primary hover:text-blue-700"
-                    onClick={(e) => {
-                      e.preventDefault();
-                      scrollToSection("quiz");
-                    }}
                   >
                     Take our symptom quiz{" "}
                     <ChevronRight className="ml-1 h-4 w-4" />
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -267,16 +255,12 @@ const Navbar = () => {
                   <ul className="grid grid-cols-1 gap-y-2">
                     {therapiesData.map((therapy, idx) => (
                       <li key={idx}>
-                        <a
-                          href="#services"
+                        <Link
+                          href={therapy.link}
                           className="text-gray-700 hover:text-primary hover:underline text-base block px-2 py-1 rounded-md hover:bg-gray-50"
-                          onClick={(e) => {
-                            e.preventDefault();
-                            scrollToSection("services");
-                          }}
                         >
-                          {therapy}
-                        </a>
+                          {therapy.name}
+                        </Link>
                       </li>
                     ))}
                   </ul>
@@ -382,17 +366,13 @@ const Navbar = () => {
             >
               <div className="px-3 py-2 space-y-2">
                 {conditionsData.map((condition, idx) => (
-                  <a
+                  <Link
                     key={idx}
-                    href="#services"
+                    href={condition.link}
                     className="block text-gray-600 hover:text-primary hover:bg-gray-50 text-base py-2 px-4 rounded-md"
-                    onClick={(e) => {
-                      e.preventDefault();
-                      scrollToSection("services");
-                    }}
                   >
-                    {condition}
-                  </a>
+                    {condition.name}
+                  </Link>
                 ))}
               </div>
             </div>
@@ -420,17 +400,13 @@ const Navbar = () => {
             >
               <div className="px-3 py-2 space-y-2">
                 {therapiesData.map((therapy, idx) => (
-                  <a
+                  <Link
                     key={idx}
-                    href="#services"
+                    href={therapy.link}
                     className="block text-gray-600 hover:text-primary hover:bg-gray-50 text-base py-2 px-4 rounded-md"
-                    onClick={(e) => {
-                      e.preventDefault();
-                      scrollToSection("services");
-                    }}
                   >
-                    {therapy}
-                  </a>
+                    {therapy.name}
+                  </Link>
                 ))}
               </div>
             </div>
