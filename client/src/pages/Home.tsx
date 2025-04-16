@@ -1,6 +1,5 @@
 import { useEffect } from "react";
-import Navbar from "@/components/Navbar";
-import QuizBanner from "@/components/QuizBanner";
+import Layout from "@/components/Layout";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
 import Services from "@/components/Services";
@@ -10,9 +9,7 @@ import FAQ from "@/components/FAQ";
 import TrustBadges from "@/components/TrustBadges";
 import ClinicInfo from "@/components/ClinicInfo";
 import CallToAction from "@/components/CallToAction";
-import Footer from "@/components/Footer";
 import Blog from "@/components/Blog";
-import LiveChat from "@/components/LiveChat";
 import MidPageCTA from "@/components/MidPageCTA";
 import { checkAnimatedElements } from "@/lib/animation";
 
@@ -31,9 +28,7 @@ const Home = () => {
   }, []);
 
   return (
-    <div className="font-sans text-text-dark bg-white">
-      <Navbar />
-      <QuizBanner />
+    <Layout>
       <Hero />
       <About />
       <Services />
@@ -45,9 +40,7 @@ const Home = () => {
       <TrustBadges />
       <ClinicInfo />
       <CallToAction />
-      <Footer />
-      <LiveChat />
-    </div>
+    </Layout>
   );
 };
 

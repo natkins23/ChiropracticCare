@@ -1,0 +1,123 @@
+Build a “Conditions We Treat” page in React + Tailwind CSS, showcasing the full range of patient concerns treated at our Pasadena-based chiropractic clinic.
+
+This page should be mobile-first, SEO-optimized, and include:
+
+A heading and short intro paragraph for local SEO
+
+A responsive grid of condition cards
+
+Each card must include:
+
+A title (e.g., “Back Pain”)
+
+A short SEO-friendly description (2–3 lines)
+
+A “Learn More” button linking to a detail page
+
+A natural language image prompt describing what type of image to generate for that condition
+
+🧱 Component Layout (React + Tailwind)
+Each card:
+
+rounded-md, shadow-md, p-4, space-y-2
+
+Include:
+
+h2 for condition title
+
+p for short description
+
+button (style: bg-blue-600 text-white px-4 py-2 rounded)
+
+comment like // Image Prompt: ... in the JSX for later AI image gen
+
+🧾 Abstract Content Blocks with Image Prompts
+js
+Copy
+Edit
+[
+  {
+    title: "Back Pain",
+    description: "We help relieve chronic and acute back pain using precise chiropractic techniques tailored to your body.",
+    imagePrompt: "A person holding their lower back in pain, in a bright, clean clinic setting",
+    link: "/services/back-pain"
+  },
+  {
+    title: "Neck Pain",
+    description: "Reduce stiffness and discomfort with gentle neck adjustments and postural correction.",
+    imagePrompt: "A woman touching her neck with discomfort, side profile, soft lighting",
+    link: "/services/neck-pain"
+  },
+  {
+    title: "Hip Pain",
+    description: "Targeted adjustments and therapy to improve hip joint function and mobility.",
+    imagePrompt: "A person stretching their hip, side lunge position, fitness studio background",
+    link: "/services/hip-pain"
+  },
+  {
+    title: "Knee Pain",
+    description: "Chiropractic care and movement correction for painful or unstable knees.",
+    imagePrompt: "Close-up of a person holding their knee while sitting on an exam table",
+    link: "/services/knee-pain"
+  },
+  {
+    title: "Sciatica",
+    description: "Stop radiating leg pain caused by sciatic nerve compression with personalized care.",
+    imagePrompt: "An anatomical illustration of the sciatic nerve with glowing pain area",
+    link: "/services/sciatica"
+  },
+  {
+    title: "Carpal Tunnel",
+    description: "Numbness, tingling, or wrist pain? We offer natural relief for carpal tunnel syndrome.",
+    imagePrompt: "Hands resting on a keyboard with wrist brace, warm-toned office background",
+    link: "/services/carpal-tunnel"
+  },
+  {
+    title: "Tension Headaches",
+    description: "Alleviate chronic headaches rooted in spinal tension or neck strain.",
+    imagePrompt: "Person with eyes closed holding forehead, in a calming wellness space",
+    link: "/services/tension-headaches"
+  },
+  {
+    title: "Whiplash",
+    description: "Post-accident recovery care for neck injuries, pain, and stiffness.",
+    imagePrompt: "Rearview mirror scene showing a car accident with highlighted neck pain overlay",
+    link: "/services/whiplash"
+  },
+  {
+    title: "Pinched Nerve",
+    description: "Reduce nerve pressure and restore function with safe, effective adjustments.",
+    imagePrompt: "Spine model or medical rendering showing a pinched nerve in red",
+    link: "/services/pinched-nerve"
+  },
+  {
+    title: "Cervical Disc Herniation",
+    description: "We treat disc bulges and herniations with non-surgical spinal decompression.",
+    imagePrompt: "Cross-section illustration of a cervical disc herniation with soft background",
+    link: "/services/cervical-disc-hernation"
+  },
+  {
+    title: "Pediatric Chiropractic",
+    description: "Gentle, kid-friendly care for posture issues, growing pains, and sports injuries.",
+    imagePrompt: "Chiropractor smiling while gently adjusting a toddler or young child",
+    link: "/services/pediatric"
+  },
+  {
+    title: "Auto Accident Injuries",
+    description: "Treat pain and mobility loss after collisions with expert recovery care.",
+    imagePrompt: "Injured person holding neck while standing near a car, soft vignette style",
+    link: "/services/auto-accident"
+  },
+  {
+    title: "Sports Injury",
+    description: "Get back in the game with chiropractic recovery programs for athletes.",
+    imagePrompt: "Athlete on a field holding hamstring or ankle in pain, sunny outdoor shot",
+    link: "/services/sports-injury"
+  }
+]
+🧠 SEO Enhancements
+Page <title>: "Conditions We Treat | Chiropractor in Pasadena"
+
+Meta description: "Explore all conditions treated at our Pasadena chiropractic clinic. Back pain, sports injuries, neck tension, and more—personalized care that works."
+
+Alt text for generated images should reflect the prompt.
