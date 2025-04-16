@@ -145,16 +145,12 @@ const Navbar = () => {
 
           {/* Desktop navigation */}
           <div className="hidden md:flex items-center space-x-1 lg:space-x-2">
-            <a
-              href="#about"
+            <Link
+              href="/#about"
               className="text-gray-700 hover:text-primary font-medium text-base lg:text-lg px-3 py-2 rounded-md hover:bg-gray-50"
-              onClick={(e) => {
-                e.preventDefault();
-                scrollToSection("about");
-              }}
             >
               About
-            </a>
+            </Link>
 
             {/* Conditions We Treat dropdown */}
             <div
@@ -288,67 +284,47 @@ const Navbar = () => {
               </div>
             </div>
 
-            <a
-              href="#testimonials"
+            <Link
+              href="/#testimonials"
               className="text-gray-700 hover:text-primary font-medium text-base lg:text-lg px-3 py-2 rounded-md hover:bg-gray-50"
-              onClick={(e) => {
-                e.preventDefault();
-                scrollToSection("testimonials");
-              }}
             >
               Testimonials
-            </a>
-            <a
-              href="#blog"
+            </Link>
+            <Link
+              href="/#blog"
               className="text-gray-700 hover:text-primary font-medium text-base lg:text-lg px-3 py-2 rounded-md hover:bg-gray-50"
-              onClick={(e) => {
-                e.preventDefault();
-                scrollToSection("blog");
-              }}
             >
               Blog
-            </a>
-            <a
-              href="#contact"
+            </Link>
+            <Link
+              href="/#contact"
               className="text-gray-700 hover:text-primary font-medium text-base lg:text-lg px-3 py-2 rounded-md hover:bg-gray-50"
-              onClick={(e) => {
-                e.preventDefault();
-                scrollToSection("contact");
-              }}
             >
               Contact
-            </a>
+            </Link>
 
             {/* CTA Button */}
             <div className="flex items-center pl-2">
               {/* Book Now Button */}
-              <a
-                href="#contact"
+              <Link
+                href="/#contact"
                 className="flex items-center bg-orange-500 text-white hover:bg-orange-600 font-medium text-sm lg:text-base px-4 py-2 rounded-md transition-colors duration-200"
-                onClick={(e) => {
-                  e.preventDefault();
-                  scrollToSection("contact");
-                }}
               >
                 <Calendar className="mr-1 h-4 w-4" />
                 Book Now
-              </a>
+              </Link>
             </div>
           </div>
 
           {/* Mobile menu button */}
           <div className="md:hidden flex items-center space-x-3">
             {/* Mobile Book Now Button */}
-            <a
-              href="#contact"
+            <Link
+              href="/#contact"
               className="flex items-center bg-orange-500 text-white hover:bg-orange-600 font-medium text-sm px-3 py-2 rounded-md transition-colors duration-200"
-              onClick={(e) => {
-                e.preventDefault();
-                scrollToSection("contact");
-              }}
             >
               Book Now
-            </a>
+            </Link>
 
             {/* Mobile menu toggle */}
             <button
@@ -371,26 +347,18 @@ const Navbar = () => {
         className={`${isMobileMenuOpen ? "block" : "hidden"} md:hidden bg-white border-t border-gray-200 px-4 py-4`}
       >
         <div className="flex flex-col space-y-3">
-          <a
-            href="#home"
+          <Link
+            href="/"
             className="text-gray-700 hover:text-primary font-medium text-lg px-3 py-2 rounded-md hover:bg-gray-50"
-            onClick={(e) => {
-              e.preventDefault();
-              scrollToSection("home");
-            }}
           >
             Home
-          </a>
-          <a
-            href="#about"
+          </Link>
+          <Link
+            href="/#about"
             className="text-gray-700 hover:text-primary font-medium text-lg px-3 py-2 rounded-md hover:bg-gray-50"
-            onClick={(e) => {
-              e.preventDefault();
-              scrollToSection("about");
-            }}
           >
             About
-          </a>
+          </Link>
 
           {/* Mobile Conditions We Treat accordion */}
           <div className="border-b border-gray-100 pb-2">
@@ -468,36 +436,24 @@ const Navbar = () => {
             </div>
           </div>
 
-          <a
-            href="#testimonials"
+          <Link
+            href="/#testimonials"
             className="text-gray-700 hover:text-primary font-medium text-lg px-3 py-2 rounded-md hover:bg-gray-50"
-            onClick={(e) => {
-              e.preventDefault();
-              scrollToSection("testimonials");
-            }}
           >
             Testimonials
-          </a>
-          <a
-            href="#blog"
+          </Link>
+          <Link
+            href="/#blog"
             className="text-gray-700 hover:text-primary font-medium text-lg px-3 py-2 rounded-md hover:bg-gray-50"
-            onClick={(e) => {
-              e.preventDefault();
-              scrollToSection("blog");
-            }}
           >
             Blog
-          </a>
-          <a
-            href="#contact"
+          </Link>
+          <Link
+            href="/#contact"
             className="text-gray-700 hover:text-primary font-medium text-lg px-3 py-2 rounded-md hover:bg-gray-50"
-            onClick={(e) => {
-              e.preventDefault();
-              scrollToSection("contact");
-            }}
           >
             Contact
-          </a>
+          </Link>
         </div>
       </div>
     </header>

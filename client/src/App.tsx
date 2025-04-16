@@ -6,6 +6,7 @@ import NotFound from "@/pages/not-found";
 import Home from "@/pages/Home";
 import ConditionsWeTreat from "@/pages/ConditionsWeTreat";
 import BackPainTreatment from "@/pages/BackPainTreatment";
+import NeckPainTreatment from "@/pages/NeckPainTreatment";
 
 function Router() {
   return (
@@ -13,6 +14,7 @@ function Router() {
       <Route path="/" component={Home} />
       <Route path="/conditions" component={ConditionsWeTreat} />
       <Route path="/services/back-pain" component={BackPainTreatment} />
+      <Route path="/services/neck-pain" component={NeckPainTreatment} />
       <Route component={NotFound} />
     </Switch>
   );
