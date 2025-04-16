@@ -10,6 +10,8 @@ import TrustBadges from "@/components/TrustBadges";
 import ClinicInfo from "@/components/ClinicInfo";
 import CallToAction from "@/components/CallToAction";
 import Footer from "@/components/Footer";
+import Blog from "@/components/Blog";
+import LiveChat from "@/components/LiveChat";
 import { checkAnimatedElements } from "@/lib/animation";
 
 const Home = () => {
@@ -34,11 +36,13 @@ const Home = () => {
       <Services />
       <Testimonials />
       <SymptomQuiz />
+      <Blog />
       <FAQ />
       <TrustBadges />
       <ClinicInfo />
       <CallToAction />
       <Footer />
+      <LiveChat />
     </div>
   );
 };

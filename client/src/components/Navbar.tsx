@@ -49,6 +49,7 @@ const Navbar = () => {
             <a href="#about" className="text-gray-600 hover:text-primary font-medium" onClick={(e) => { e.preventDefault(); scrollToSection("about"); }}>About</a>
             <a href="#services" className="text-gray-600 hover:text-primary font-medium" onClick={(e) => { e.preventDefault(); scrollToSection("services"); }}>Services</a>
             <a href="#testimonials" className="text-gray-600 hover:text-primary font-medium" onClick={(e) => { e.preventDefault(); scrollToSection("testimonials"); }}>Testimonials</a>
+            <a href="#blog" className="text-gray-600 hover:text-primary font-medium" onClick={(e) => { e.preventDefault(); scrollToSection("blog"); }}>Blog</a>
             <a href="#faq" className="text-gray-600 hover:text-primary font-medium" onClick={(e) => { e.preventDefault(); scrollToSection("faq"); }}>FAQ</a>
             <a href="#contact" className="text-gray-600 hover:text-primary font-medium" onClick={(e) => { e.preventDefault(); scrollToSection("contact"); }}>Contact</a>
           </div>
@@ -75,6 +76,7 @@ const Navbar = () => {
           <a href="#about" className="text-gray-600 hover:text-primary px-3 py-2" onClick={(e) => { e.preventDefault(); scrollToSection("about"); }}>About</a>
           <a href="#services" className="text-gray-600 hover:text-primary px-3 py-2" onClick={(e) => { e.preventDefault(); scrollToSection("services"); }}>Services</a>
           <a href="#testimonials" className="text-gray-600 hover:text-primary px-3 py-2" onClick={(e) => { e.preventDefault(); scrollToSection("testimonials"); }}>Testimonials</a>
+          <a href="#blog" className="text-gray-600 hover:text-primary px-3 py-2" onClick={(e) => { e.preventDefault(); scrollToSection("blog"); }}>Blog</a>
           <a href="#faq" className="text-gray-600 hover:text-primary px-3 py-2" onClick={(e) => { e.preventDefault(); scrollToSection("faq"); }}>FAQ</a>
           <a href="#contact" className="text-gray-600 hover:text-primary px-3 py-2" onClick={(e) => { e.preventDefault(); scrollToSection("contact"); }}>Contact</a>
         </div>
