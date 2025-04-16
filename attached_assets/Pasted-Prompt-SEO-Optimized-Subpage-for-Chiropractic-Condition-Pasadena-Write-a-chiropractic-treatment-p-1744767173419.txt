@@ -1,0 +1,103 @@
+Prompt: SEO-Optimized Subpage for Chiropractic Condition (Pasadena)
+Write a chiropractic treatment page for the condition: [Insert Condition].
+This is not a landing page, but an internal service page on a Pasadena-based chiropractor’s website (e.g. https://subdomain.clinicname.com/back-pain).
+
+The writing should be:
+
+SEO-friendly (use the condition name + “Pasadena” naturally)
+
+Educational, trustworthy, and patient-focused
+
+Structured with scannable headings and image placeholders
+
+Designed to rank well on Google for queries like “back pain chiropractor Pasadena”
+
+🧱 Page Structure & Requirements
+✅ H1 Heading:
+Chiropractic Treatment for [Condition] in Pasadena
+
+📘 Section 1: Overview
+Subheading:
+What Is [Condition] and How It Affects You
+
+Body:
+Write 2–3 paragraphs explaining the condition in plain terms.
+Mention common causes (injuries, posture, stress, etc.) and how it affects daily life.
+Use local tie-ins like “Many of our Pasadena patients come to us with...”
+
+Image Placeholder:
+[Image of patient experiencing condition discomfort]
+
+📍 Section 2: Find [Condition] Relief in Pasadena
+Subheading (SEO-rich):
+How Our Chiropractor Helps Patients with [Condition] in Pasadena
+
+Body:
+
+Explain how chiropractic care addresses root causes
+
+Mention specific techniques (adjustments, decompression, soft tissue work)
+
+Use phrases like: “Pasadena chiropractic care for [condition]”
+
+Keep it non-salesy but action-oriented
+
+Image Placeholder:
+[Image of doctor performing treatment or showing spine model]
+
+📊 Section 3: Symptoms We Treat
+Subheading:
+Common Symptoms of [Condition]
+
+Bullet point list (5–8 items)
+
+Radiating pain
+
+Stiffness
+
+Numbness or tingling
+
+Reduced range of motion
+
+Muscle weakness
+
+Headaches (if applicable)
+
+👨‍⚕️ Section 4: Meet the Doctor
+Subheading:
+Experienced [Condition] Chiropractor in Pasadena
+
+Body:
+Short bio paragraph of the chiropractor (Dr. [Name]), their years in practice, certifications, and commitment to treating this condition.
+
+Image Placeholder:
+[Image of chiropractor headshot or adjusting patient]
+
+🧭 Section 5: What to Expect at Your Appointment
+Subheading:
+Your First Visit for [Condition] Chiropractic Care
+
+What happens during your first visit
+
+Personalized evaluation, treatment plan
+
+Safe, non-invasive care
+
+📞 Section 6: Schedule Your Appointment
+Subheading (SEO CTA):
+Start Your [Condition] Recovery in Pasadena Today
+
+Brief motivational paragraph: “You don’t have to live with this pain.”
+
+Include two clear CTAs:
+
+Schedule Online
+
+Call Our Office
+
+🔍 SEO Notes
+Use terms like “chiropractic care for [condition] in Pasadena” in H2s and intro paragraph
+
+Mention local context where natural: Pasadena community, nearby neighborhoods
+
+Add alt text descriptions for each image

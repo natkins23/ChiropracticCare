@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { Menu, X, ChevronDown, ChevronRight, Calendar } from "lucide-react";
+import { Link, useLocation } from "wouter";
 
 // Data for the two dropdown menus
 const conditionsData = [
@@ -162,22 +163,29 @@ const Navbar = () => {
               onMouseEnter={() => handleMouseEnter("conditions")}
               onMouseLeave={handleMouseLeave}
             >
-              <button
-                className="flex items-center text-gray-700 hover:text-primary font-medium text-base lg:text-lg px-3 py-2 rounded-md hover:bg-gray-50 focus:outline-none"
-                aria-expanded={activeDropdown === "conditions"}
-                aria-haspopup="true"
-                onClick={(e) => {
-                  e.preventDefault();
-                  setActiveDropdown(
-                    activeDropdown === "conditions" ? null : "conditions",
-                  );
-                }}
-              >
-                <span>Conditions We Treat</span>
-                <ChevronDown
-                  className={`ml-1 h-5 w-5 transition-transform ${activeDropdown === "conditions" ? "rotate-180" : ""}`}
-                />
-              </button>
+              <div className="flex items-center">
+                <Link
+                  href="/conditions"
+                  className="text-gray-700 hover:text-primary font-medium text-base lg:text-lg px-3 py-2 rounded-md hover:bg-gray-50"
+                >
+                  <span>Conditions We Treat</span>
+                </Link>
+                <button
+                  className="ml-1 text-gray-700 hover:text-primary focus:outline-none"
+                  aria-expanded={activeDropdown === "conditions"}
+                  aria-haspopup="true"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setActiveDropdown(
+                      activeDropdown === "conditions" ? null : "conditions",
+                    );
+                  }}
+                >
+                  <ChevronDown
+                    className={`h-5 w-5 transition-transform ${activeDropdown === "conditions" ? "rotate-180" : ""}`}
+                  />
+                </button>
+              </div>
 
               {/* Conditions dropdown */}
               <div

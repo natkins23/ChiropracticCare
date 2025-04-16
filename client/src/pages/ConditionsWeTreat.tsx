@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Helmet } from "react-helmet";
 import { ChevronRight } from "lucide-react";
 import Layout from "@/components/Layout";
+import { Link } from "wouter";
 
 // Define the data structure for condition cards
 interface ConditionCard {
@@ -164,12 +165,12 @@ const ConditionsWeTreat = () => {
                 
                 <h2 className="text-xl font-bold text-gray-800">{condition.title}</h2>
                 <p className="text-gray-600">{condition.description}</p>
-                <a 
+                <Link
                   href={condition.link} 
                   className="inline-flex items-center text-blue-600 font-medium hover:text-blue-800 transition-colors"
                 >
                   Learn More <ChevronRight className="ml-1 h-4 w-4" />
-                </a>
+                </Link>
               </motion.div>
             ))}
           </motion.div>
@@ -186,18 +187,18 @@ const ConditionsWeTreat = () => {
               Schedule a comprehensive consultation with our expert chiropractors to diagnose your condition and develop a personalized treatment plan.
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
-              <a 
+              <Link 
                 href="/quiz" 
                 className="inline-flex justify-center items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-blue-500 hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors"
               >
                 Take Our Symptom Quiz
-              </a>
-              <a 
+              </Link>
+              <Link 
                 href="/contact" 
                 className="inline-flex justify-center items-center px-6 py-3 border border-blue-500 text-base font-medium rounded-md shadow-sm text-blue-500 bg-white hover:bg-blue-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors"
               >
                 Book a Consultation
-              </a>
+              </Link>
             </div>
           </motion.div>
         </div>
