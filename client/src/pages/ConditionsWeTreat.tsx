@@ -72,7 +72,7 @@ const conditions: ConditionCard[] = [
     title: "Cervical Disc Herniation",
     description: "We treat disc bulges and herniations with non-surgical spinal decompression.",
     imagePrompt: "Cross-section illustration of a cervical disc herniation with soft background",
-    link: "/conditions/cervical-disc-hernation"
+    link: "/conditions/cervical-disc-herniation"
   },
   {
     title: "Pediatric Chiropractic",
