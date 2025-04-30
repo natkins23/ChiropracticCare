@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { Calendar, ArrowRight } from 'lucide-react';
+import { Link } from 'wouter';
 
 interface BlogPost {
   id: number;
@@ -73,24 +74,22 @@ const Blog = () => {
                 </div>
                 <h3 className="text-xl font-semibold mb-2">{post.title}</h3>
                 <p className="text-gray-600 mb-4">{post.excerpt}</p>
-                <a 
-                  href="#" 
-                  className="inline-flex items-center text-blue-500 hover:text-blue-700 font-medium"
-                >
-                  Read more <ArrowRight className="h-4 w-4 ml-1" />
-                </a>
+                <Link href="/blog">
+                  <span className="inline-flex items-center text-blue-500 hover:text-blue-700 font-medium cursor-pointer">
+                    Read more <ArrowRight className="h-4 w-4 ml-1" />
+                  </span>
+                </Link>
               </div>
             </div>
           ))}
         </div>
         
         <div className="text-center mt-12">
-          <a 
-            href="#" 
-            className="inline-flex items-center px-6 py-3 border border-gray-300 shadow-sm text-base font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors"
-          >
-            View all articles
-          </a>
+          <Link href="/blog">
+            <span className="inline-flex items-center px-6 py-3 border border-gray-300 shadow-sm text-base font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors cursor-pointer">
+              View all articles
+            </span>
+          </Link>
         </div>
       </div>
     </section>
