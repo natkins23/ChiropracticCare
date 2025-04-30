@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
-import { Link } from 'wouter';
+import { Link, useLocation } from 'wouter';
+import { useState, useEffect, useMemo } from 'react';
 import { Calendar, ArrowRight, ChevronLeft, Search } from 'lucide-react';
 import Layout from '../components/Layout';
 import { Button } from '../components/ui/button';
@@ -16,6 +17,23 @@ interface BlogPost {
 }
 
 const BlogPage = () => {
+  const [location, setLocation] = useLocation();
+  const [currentPage, setCurrentPage] = useState<number>(1);
+  const [postsPerPage] = useState<number>(6);
+  const [searchTerm, setSearchTerm] = useState<string>('');
+  const [selectedCategory, setSelectedCategory] = useState<string>('All Posts');
+
+  // Parse the page from URL if present
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const page = params.get('page');
+    if (page) {
+      setCurrentPage(parseInt(page, 10));
+    } else {
+      setCurrentPage(1);
+    }
+  }, [location]);
+
   const categories = [
     'All Posts',
     'Chiropractic Care',
@@ -28,7 +46,7 @@ const BlogPage = () => {
     'Injury Prevention'
   ];
 
-  const blogPosts: BlogPost[] = [
+  const allBlogPosts: BlogPost[] = [
     {
       id: 1,
       title: "5 Stretches to Relieve Desk Job Back Pain",
@@ -112,9 +130,49 @@ const BlogPage = () => {
     }
   ];
 
-  const featuredPost = blogPosts[0];
-  const recentPosts = blogPosts.slice(1, 4);
-  const remainingPosts = blogPosts.slice(4);
+  // Filter posts based on search term and category
+  const filteredPosts = useMemo(() => {
+    return allBlogPosts.filter(post => {
+      const matchesSearch = post.title.toLowerCase().includes(searchTerm.toLowerCase()) || 
+                         post.excerpt.toLowerCase().includes(searchTerm.toLowerCase());
+      const matchesCategory = selectedCategory === 'All Posts' || post.category === selectedCategory;
+      return matchesSearch && matchesCategory;
+    });
+  }, [allBlogPosts, searchTerm, selectedCategory]);
+
+  // Get current posts for pagination
+  const indexOfLastPost = currentPage * postsPerPage;
+  const indexOfFirstPost = indexOfLastPost - postsPerPage;
+  const currentPosts = filteredPosts.slice(indexOfFirstPost, indexOfLastPost);
+  
+  // Calculate total pages
+  const totalPages = Math.ceil(filteredPosts.length / postsPerPage);
+
+  // Change page
+  const paginate = (pageNumber: number) => {
+    if (pageNumber < 1 || pageNumber > totalPages) return;
+    setCurrentPage(pageNumber);
+    // Update URL with page parameter
+    const params = new URLSearchParams(window.location.search);
+    params.set('page', pageNumber.toString());
+    setLocation(`/blog?${params.toString()}`);
+    window.scrollTo(0, 0);
+  };
+
+  // Handle search
+  const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchTerm(e.target.value);
+    setCurrentPage(1);
+  };
+
+  // Handle category filter
+  const handleCategoryFilter = (category: string) => {
+    setSelectedCategory(category);
+    setCurrentPage(1);
+  };
+
+  const featuredPost = allBlogPosts[0];
+  const recentPosts = allBlogPosts.slice(1, 4);
 
   return (
     <Layout>
@@ -155,6 +213,8 @@ const BlogPage = () => {
                 type="text" 
                 placeholder="Search articles..." 
                 className="pr-10"
+                value={searchTerm}
+                onChange={handleSearch}
               />
               <Search className="absolute right-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
             </div>
@@ -164,9 +224,10 @@ const BlogPage = () => {
                 {categories.slice(0, 5).map((category, index) => (
                   <Button 
                     key={index} 
-                    variant={index === 0 ? "default" : "outline"} 
+                    variant={category === selectedCategory ? "default" : "outline"} 
                     size="sm"
                     className="whitespace-nowrap"
+                    onClick={() => handleCategoryFilter(category)}
                   >
                     {category}
                   </Button>
@@ -225,7 +286,7 @@ const BlogPage = () => {
           >
             <h2 className="text-2xl font-bold mb-6 pb-2 border-b border-gray-200">Recent Articles</h2>
             <div className="grid md:grid-cols-3 gap-8">
-              {recentPosts.map((post) => (
+              {allBlogPosts.slice(1, 4).map((post: BlogPost) => (
                 <div key={post.id} className="bg-white rounded-lg shadow-md overflow-hidden">
                   <div className="h-48 overflow-hidden">
                     <img 
@@ -266,7 +327,7 @@ const BlogPage = () => {
           >
             <h2 className="text-2xl font-bold mb-6 pb-2 border-b border-gray-200">All Articles</h2>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {remainingPosts.map((post) => (
+              {currentPosts.map((post: BlogPost) => (
                 <div key={post.id} className="bg-white rounded-lg shadow-sm overflow-hidden flex flex-col h-full">
                   <div className="h-40 overflow-hidden">
                     <img 
@@ -297,29 +358,78 @@ const BlogPage = () => {
           </motion.div>
 
           {/* Pagination */}
-          <div className="mt-12 flex justify-center">
-            <nav className="flex items-center space-x-1">
-              <Button variant="outline" size="sm" className="w-9 h-9 p-0 flex items-center justify-center">
-                <ChevronLeft className="h-4 w-4" />
-              </Button>
-              <Button variant="default" size="sm" className="w-9 h-9 p-0">
-                1
-              </Button>
-              <Button variant="outline" size="sm" className="w-9 h-9 p-0">
-                2
-              </Button>
-              <Button variant="outline" size="sm" className="w-9 h-9 p-0">
-                3
-              </Button>
-              <span className="px-2 text-gray-500">...</span>
-              <Button variant="outline" size="sm" className="w-9 h-9 p-0">
-                8
-              </Button>
-              <Button variant="outline" size="sm" className="w-9 h-9 p-0 flex items-center justify-center">
-                <ArrowRight className="h-4 w-4" />
-              </Button>
-            </nav>
-          </div>
+          {totalPages > 1 && (
+            <div className="mt-12 flex justify-center">
+              <nav className="flex items-center space-x-1">
+                <Button 
+                  variant="outline" 
+                  size="sm" 
+                  className="w-9 h-9 p-0 flex items-center justify-center"
+                  onClick={() => paginate(currentPage - 1)}
+                  disabled={currentPage === 1}
+                >
+                  <ChevronLeft className="h-4 w-4" />
+                </Button>
+
+                {/* Dynamic Pagination */}
+                {Array.from({ length: Math.min(totalPages, 5) }).map((_, idx) => {
+                  // Display first page, last page, and a few pages around current page
+                  let pageNumber: number;
+                  
+                  if (totalPages <= 5) {
+                    // If we have 5 or fewer pages, just show all pages
+                    pageNumber = idx + 1;
+                  } else if (currentPage <= 3) {
+                    // If we're near the start, show first 5 pages
+                    pageNumber = idx + 1;
+                  } else if (currentPage >= totalPages - 2) {
+                    // If we're near the end, show last 5 pages
+                    pageNumber = totalPages - 4 + idx;
+                  } else {
+                    // Otherwise show 2 pages before and after current page
+                    pageNumber = currentPage - 2 + idx;
+                  }
+
+                  return (
+                    <Button 
+                      key={idx} 
+                      variant={pageNumber === currentPage ? "default" : "outline"} 
+                      size="sm" 
+                      className="w-9 h-9 p-0"
+                      onClick={() => paginate(pageNumber)}
+                    >
+                      {pageNumber}
+                    </Button>
+                  );
+                })}
+                
+                {/* Show ellipsis and last page if there are many pages */}
+                {totalPages > 5 && currentPage < totalPages - 2 && (
+                  <>
+                    <span className="px-2 text-gray-500">...</span>
+                    <Button 
+                      variant="outline" 
+                      size="sm" 
+                      className="w-9 h-9 p-0"
+                      onClick={() => paginate(totalPages)}
+                    >
+                      {totalPages}
+                    </Button>
+                  </>
+                )}
+
+                <Button 
+                  variant="outline" 
+                  size="sm" 
+                  className="w-9 h-9 p-0 flex items-center justify-center"
+                  onClick={() => paginate(currentPage + 1)}
+                  disabled={currentPage === totalPages}
+                >
+                  <ArrowRight className="h-4 w-4" />
+                </Button>
+              </nav>
+            </div>
+          )}
         </div>
       </div>
     </Layout>
