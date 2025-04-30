@@ -23,17 +23,6 @@ const BlogPage = () => {
   const [searchTerm, setSearchTerm] = useState<string>('');
   const [selectedCategory, setSelectedCategory] = useState<string>('All Posts');
 
-  // Parse the page from URL if present
-  useEffect(() => {
-    const params = new URLSearchParams(window.location.search);
-    const page = params.get('page');
-    if (page) {
-      setCurrentPage(parseInt(page, 10));
-    } else {
-      setCurrentPage(1);
-    }
-  }, [location]);
-
   const categories = [
     'All Posts',
     'Chiropractic Care',
@@ -161,14 +150,44 @@ const BlogPage = () => {
 
   // Handle search
   const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchTerm(e.target.value);
-    setCurrentPage(1);
+    const value = e.target.value;
+    setSearchTerm(value);
+    setCurrentPage(1); // Reset to first page when search changes
+    
+    // This will trigger the useMemo to refilter posts based on new search term
+    // Search is already implemented in the useMemo, no need to duplicate logic here
+    // The URL page parameter is updated in the paginate function
+    
+    // When search changes, we update the URL to remove page param to start at page 1
+    const params = new URLSearchParams(window.location.search);
+    params.delete('page');
+    if (params.toString()) {
+      setLocation(`/blog?${params.toString()}`);
+    } else {
+      setLocation('/blog');
+    }
   };
 
   // Handle category filter
   const handleCategoryFilter = (category: string) => {
     setSelectedCategory(category);
-    setCurrentPage(1);
+    setCurrentPage(1); // Reset to first page when category changes
+    
+    // When category changes, we update the URL
+    const params = new URLSearchParams(window.location.search);
+    params.delete('page'); // Remove page parameter to start at page 1
+    
+    if (category !== 'All Posts') {
+      params.set('category', category);
+    } else {
+      params.delete('category');
+    }
+    
+    if (params.toString()) {
+      setLocation(`/blog?${params.toString()}`);
+    } else {
+      setLocation('/blog');
+    }
   };
 
   const featuredPost = allBlogPosts[0];
@@ -208,19 +227,27 @@ const BlogPage = () => {
           {/* Search and Filter */}
           <div className="mb-12 flex flex-col md:flex-row justify-between items-start md:items-center space-y-4 md:space-y-0">
             <div className="relative w-full md:w-72">
-              <Input 
-                type="text" 
-                placeholder="Search articles..." 
-                className="pr-10"
-                value={searchTerm}
-                onChange={handleSearch}
-              />
-              <Search className="absolute right-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
+              <form onSubmit={(e) => e.preventDefault()}>
+                <Input 
+                  type="text" 
+                  placeholder="Search articles..." 
+                  className="pr-10"
+                  value={searchTerm}
+                  onChange={handleSearch}
+                />
+                <button 
+                  type="submit" 
+                  className="absolute right-3 top-1/2 transform -translate-y-1/2 bg-transparent border-none p-0 cursor-pointer"
+                  aria-label="Search"
+                >
+                  <Search className="h-5 w-5 text-gray-400" />
+                </button>
+              </form>
             </div>
             <div className="flex items-center space-x-4 overflow-x-auto pb-2 w-full md:w-auto">
               <span className="text-sm font-medium text-gray-700 whitespace-nowrap">Filter by:</span>
-              <div className="flex space-x-2">
-                {categories.slice(0, 5).map((category, index) => (
+              <div className="flex flex-wrap gap-2">
+                {categories.map((category, index) => (
                   <Button 
                     key={index} 
                     variant={category === selectedCategory ? "default" : "outline"} 
@@ -231,9 +258,6 @@ const BlogPage = () => {
                     {category}
                   </Button>
                 ))}
-                <Button variant="outline" size="sm" className="whitespace-nowrap">
-                  More +
-                </Button>
               </div>
             </div>
           </div>
