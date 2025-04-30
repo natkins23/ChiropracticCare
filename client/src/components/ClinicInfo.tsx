@@ -107,7 +107,7 @@ const ClinicInfo = () => {
                 </a>
                 
                 <a 
-                  href={`https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(location.address)}`}
+                  href={`https://www.openstreetmap.org/directions?from=&to=${location.lat}%2C${location.lng}#map=15/${location.lat}/${location.lng}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex justify-center items-center w-full px-6 py-3 border border-blue-500 text-base font-medium rounded-md shadow-sm text-blue-500 bg-white hover:bg-blue-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors"
@@ -129,10 +129,10 @@ const ClinicInfo = () => {
             <div className="rounded-lg overflow-hidden shadow-md h-96 bg-gray-100 relative">
               <iframe
                 ref={mapRef}
-                src={`https://www.google.com/maps/embed/v1/place?key=AIzaSyD-9tSrke72PouQMnMX-a7eZSW0jkFMBWY&q=${encodeURIComponent(location.address)}&zoom=15`}
+                src={`https://www.openstreetmap.org/export/embed.html?bbox=-118.15950393676758%2C34.13280098439661%2C-118.12939643859865%2C34.162766908192305&amp;layer=mapnik&amp;marker=${location.lat}%2C${location.lng}`}
                 className="absolute inset-0 w-full h-full opacity-0 transition-opacity duration-500"
                 loading="lazy"
-                title="Google Maps showing clinic location"
+                title="OpenStreetMap showing clinic location"
                 allowFullScreen
               ></iframe>
 
@@ -149,7 +149,7 @@ const ClinicInfo = () => {
             </div>
             
             <div className="mt-4 text-sm text-gray-500 italic">
-              Note: This map uses a demo API key for display purposes. In a production environment, you would use your own Google Maps API key.
+              This map uses OpenStreetMap which is free and doesn't require an API key.
             </div>
           </motion.div>
         </div>
