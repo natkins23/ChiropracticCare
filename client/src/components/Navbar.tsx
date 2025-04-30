@@ -212,6 +212,13 @@ const Navbar = () => {
                     Take our symptom quiz{" "}
                     <ChevronRight className="ml-1 h-4 w-4" />
                   </Link>
+                  <Link
+                    href="/symptom-explainer"
+                    className="flex items-center text-base font-medium text-primary hover:text-blue-700"
+                  >
+                    Symptom explainer{" "}
+                    <ChevronRight className="ml-1 h-4 w-4" />
+                  </Link>
                 </div>
               </div>
             </div>
@@ -279,6 +286,12 @@ const Navbar = () => {
               className="text-gray-700 hover:text-primary font-medium text-base lg:text-lg px-3 py-2 rounded-md hover:bg-gray-50"
             >
               Blog
+            </Link>
+            <Link
+              href="/symptom-explainer"
+              className="text-gray-700 hover:text-primary font-medium text-base lg:text-lg px-3 py-2 rounded-md hover:bg-gray-50"
+            >
+              Symptom Explainer
             </Link>
             <Link
               href="/#contact"
@@ -374,6 +387,14 @@ const Navbar = () => {
                     {condition.name}
                   </Link>
                 ))}
+                <div className="border-t border-gray-100 mt-2 pt-2">
+                  <Link
+                    href="/symptom-explainer"
+                    className="block text-blue-600 hover:text-blue-800 hover:bg-gray-50 text-base py-2 px-4 rounded-md font-medium"
+                  >
+                    Try our Symptom Explainer
+                  </Link>
+                </div>
               </div>
             </div>
           </div>
@@ -423,6 +444,12 @@ const Navbar = () => {
             className="text-gray-700 hover:text-primary font-medium text-lg px-3 py-2 rounded-md hover:bg-gray-50"
           >
             Blog
+          </Link>
+          <Link
+            href="/symptom-explainer"
+            className="text-gray-700 hover:text-primary font-medium text-lg px-3 py-2 rounded-md hover:bg-gray-50"
+          >
+            Symptom Explainer
           </Link>
           <Link
             href="/#contact"
