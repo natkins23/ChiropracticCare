@@ -10,6 +10,7 @@ import NeckPainTreatment from "@/pages/NeckPainTreatment";
 import HipPainTreatment from "./pages/HipPainTreatment";
 import KneePainTreatment from "./pages/KneePainTreatment";
 import SciaticaTreatment from "./pages/SciaticaTreatment";
+import BlogPage from "./pages/BlogPage";
 
 function Router() {
   return (
@@ -21,6 +22,7 @@ function Router() {
       <Route path="/conditions/hip-pain" component={HipPainTreatment} />
       <Route path="/conditions/knee-pain" component={KneePainTreatment} />
       <Route path="/conditions/sciatica" component={SciaticaTreatment} />
+      <Route path="/blog" component={BlogPage} />
       <Route component={NotFound} />
     </Switch>
   );

@@ -275,7 +275,7 @@ const Navbar = () => {
               Testimonials
             </Link>
             <Link
-              href="/#blog"
+              href="/blog"
               className="text-gray-700 hover:text-primary font-medium text-base lg:text-lg px-3 py-2 rounded-md hover:bg-gray-50"
             >
               Blog

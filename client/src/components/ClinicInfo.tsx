@@ -129,8 +129,8 @@ const ClinicInfo = () => {
             <div className="rounded-lg overflow-hidden shadow-md h-96 bg-gray-100 relative">
               <iframe
                 ref={mapRef}
-                src={`https://www.openstreetmap.org/export/embed.html?bbox=-118.15950393676758%2C34.13280098439661%2C-118.12939643859865%2C34.162766908192305&amp;layer=mapnik&amp;marker=${location.lat}%2C${location.lng}`}
-                className="absolute inset-0 w-full h-full opacity-0 transition-opacity duration-500"
+                src="https://www.openstreetmap.org/export/embed.html?bbox=-118.16585540771486%2C34.13909775056255%2C-118.12304496765138%2C34.15606005239286&amp;layer=mapnik&amp;marker=34.1478%2C-118.1445"
+                className="absolute inset-0 w-full h-full opacity-100 transition-opacity duration-500 z-10"
                 loading="lazy"
                 title="OpenStreetMap showing clinic location"
                 allowFullScreen
