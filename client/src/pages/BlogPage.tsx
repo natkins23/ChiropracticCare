@@ -35,6 +35,34 @@ const BlogPage = () => {
     'Injury Prevention'
   ];
 
+  // Parse URL parameters (page, category, search)
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    
+    // Handle page parameter
+    const page = params.get('page');
+    if (page) {
+      setCurrentPage(parseInt(page, 10));
+    } else {
+      setCurrentPage(1);
+    }
+    
+    // Handle category parameter
+    const category = params.get('category');
+    if (category) {
+      // Only set if it's a valid category
+      if (categories.includes(category)) {
+        setSelectedCategory(category);
+      }
+    }
+    
+    // Handle search parameter
+    const search = params.get('search');
+    if (search) {
+      setSearchTerm(search);
+    }
+  }, [location, categories]);
+
   const allBlogPosts: BlogPost[] = [
     {
       id: 1,
@@ -154,13 +182,18 @@ const BlogPage = () => {
     setSearchTerm(value);
     setCurrentPage(1); // Reset to first page when search changes
     
-    // This will trigger the useMemo to refilter posts based on new search term
-    // Search is already implemented in the useMemo, no need to duplicate logic here
-    // The URL page parameter is updated in the paginate function
-    
-    // When search changes, we update the URL to remove page param to start at page 1
+    // When search changes, we update the URL
     const params = new URLSearchParams(window.location.search);
-    params.delete('page');
+    params.delete('page'); // Remove page parameter to start at page 1
+    
+    // Add or remove search parameter based on value
+    if (value) {
+      params.set('search', value);
+    } else {
+      params.delete('search');
+    }
+    
+    // Update URL with or without parameters
     if (params.toString()) {
       setLocation(`/blog?${params.toString()}`);
     } else {
