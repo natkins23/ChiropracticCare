@@ -172,7 +172,6 @@ const BlogPage = () => {
   };
 
   const featuredPost = allBlogPosts[0];
-  const recentPosts = allBlogPosts.slice(1, 4);
 
   return (
     <Layout>
@@ -183,7 +182,7 @@ const BlogPage = () => {
             <ol className="flex items-center space-x-1 text-sm text-gray-500">
               <li>
                 <Link href="/">
-                  <a className="hover:text-blue-500">Home</a>
+                  <span className="hover:text-blue-500 cursor-pointer">Home</span>
                 </Link>
               </li>
               <li className="flex items-center">
