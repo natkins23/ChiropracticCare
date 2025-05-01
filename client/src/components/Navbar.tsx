@@ -132,13 +132,6 @@ const Navbar = () => {
 
             {/* Desktop navigation */}
             <div className="hidden md:flex items-center space-x-1 lg:space-x-2">
-              <Link
-                href="/#about"
-                className="text-gray-700 hover:text-primary font-medium text-base lg:text-lg px-3 py-2 rounded-md hover:bg-gray-50"
-              >
-                About
-              </Link>
-
               {/* Conditions We Treat dropdown */}
               <div
                 ref={conditionsRef}

@@ -163,26 +163,35 @@ const ConditionsWeTreat = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
           >
-            <h2 className="text-2xl font-bold mb-4">
-              Not Sure What's Causing Your Pain?
-            </h2>
+            <div>
+              <h2 className="text-2xl font-bold mb-4">
+                Not Sure What's Causing Your Pain?
+              </h2>
+              <Link
+                href="/contact"
+                className="inline-flex justify-center items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-blue-500 bg-white hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white transition-colors"
+              >
+                Schedule Adjustment
+              </Link>
+            </div>
             <p className="text-lg text-gray-600 mb-6 max-w-2xl mx-auto">
               Schedule a comprehensive consultation with our expert
               chiropractors to diagnose your condition and develop a
               personalized treatment plan.
             </p>
+
             <div className="flex flex-col sm:flex-row justify-center gap-4">
               <Link
-                href="/quiz"
+                href="/#quiz"
                 className="inline-flex justify-center items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-blue-500 hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors"
               >
                 Take Our Symptom Quiz
               </Link>
               <Link
-                href="/contact"
+                href="/ai-diagnosis-tool"
                 className="inline-flex justify-center items-center px-6 py-3 border border-blue-500 text-base font-medium rounded-md shadow-sm text-blue-500 bg-white hover:bg-blue-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors"
               >
-                Book a Consultation
+                Try Our AI Diagnosis Tool
               </Link>
             </div>
           </motion.div>

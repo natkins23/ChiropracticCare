@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'wouter';
 import Layout from '../components/Layout';
-import SymptomExplainer from '../components/SymptomExplainer';
+import AIDiagnosisTool from '../components/AIDiagnosisTool';
 
 const SymptomExplainerPage: React.FC = () => {
   return (
@@ -47,7 +47,7 @@ const SymptomExplainerPage: React.FC = () => {
 
       {/* AI Diagnosis Tool */}
       <div className="py-12 bg-gray-50">
-        <SymptomExplainer />
+        <AIDiagnosisTool />
       </div>
 
       {/* How It Works Section */}
