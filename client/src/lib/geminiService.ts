@@ -1,10 +1,13 @@
 import { GoogleGenerativeAI } from '@google/generative-ai';
 
 // Initialize the Gemini AI with the API key
-const genAI = new GoogleGenerativeAI(import.meta.env.GOOGLE_API_KEY || '');
+const apiKey = import.meta.env.VITE_GOOGLE_API_KEY || '';
+console.log('API Key available:', apiKey ? 'Yes (length ' + apiKey.length + ')' : 'No');
+const genAI = new GoogleGenerativeAI(apiKey);
 
 // Get a specific model to use
-const model = genAI.getGenerativeModel({ model: 'gemini-1.5-pro' });
+// Using Gemini 2.5 Flash Preview (as of April 17, 2024)
+const model = genAI.getGenerativeModel({ model: 'gemini-1.5-flash-preview-0417' });
 
 // Function to generate a response for symptom analysis
 export async function analyzeSymptoms(

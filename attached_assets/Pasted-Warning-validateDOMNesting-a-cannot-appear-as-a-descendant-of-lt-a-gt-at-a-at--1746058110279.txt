@@ -1,0 +1,33 @@
+Warning: validateDOMNesting(...): <a> cannot appear as a descendant of &lt;a&gt;.
+    at a
+    at a
+    at https://febbec6e-80dc-4e42-a888-580cf75e4177-00-25xyx93xruczq.worf.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/wouter.js?v=a6596bcb:337:18
+    at div
+    at MotionComponent (https://febbec6e-80dc-4e42-a888-580cf75e4177-00-25xyx93xruczq.worf.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/framer-motion.js?v=a6596bcb:945:40)
+    at div
+    at div
+    at div
+    at div
+    at div
+    at Layout (https://febbec6e-80dc-4e42-a888-580cf75e4177-00-25xyx93xruczq.worf.replit.dev/src/components/Layout.tsx?t=1746057505066:21:19)
+    at SymptomExplainerPage
+    at Route (https://febbec6e-80dc-4e42-a888-580cf75e4177-00-25xyx93xruczq.worf.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/wouter.js?v=a6596bcb:323:16)
+    at Switch (https://febbec6e-80dc-4e42-a888-580cf75e4177-00-25xyx93xruczq.worf.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/wouter.js?v=a6596bcb:379:17)
+    at Router
+    at QueryClientProvider (https://febbec6e-80dc-4e42-a888-580cf75e4177-00-25xyx93xruczq.worf.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/@tanstack_react-query.js?v=a6596bcb:2805:3)
+    at App
+Error generating body part information with Gemini: 
+GoogleGenerativeAIFetchError {status: 403, statusText: "", errorDetails: undefined}
+errorDetails: undefined
+status: 403
+statusText: ""
+message: "[GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-pro:generateContent: [403 ] Method doesn't allow unregistered callers (callers without established identity). Please use API Key or other form of API consumer identity to call this API."
+stack: "Error: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-pro:generateContent: [403 ] Method doesn't allow unregistered callers (callers without established identity). Please use API Key or other form of API consumer identity to call this API.↵ at handleResponseNotOk (https://febbec6e-80dc-4e42-a888-580cf75e4177-00-25xyx93xruczq.worf.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/@google_generative-ai.js?v=a6596bcb:226:9)↵ at async makeRequest (https://febbec6e-80dc-4e42-a888-580cf75e4177-00-25xyx93xruczq.worf.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/@google_generative-ai.js?v=a6596bcb:199:5)↵ at async generateContent (https://febbec6e-80dc-4e42-a888-580cf75e4177-00-25xyx93xruczq.worf.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/@google_generative-ai.js?v=a6596bcb:544:20)↵ at async getBodyPartInformation (https://febbec6e-80dc-4e42-a888-580cf75e4177-00-25xyx93xruczq.worf.replit.dev/src/lib/geminiService.ts?t=1746057455891:47:20)↵ at async handleBodyPartClick (https://febbec6e-80dc-4e42-a888-580cf75e4177-00-25xyx93xruczq.worf.replit.dev/src/components/SymptomExplainer.tsx?t=1746057455891:71:20)"
+get stack: ƒ ()
+set stack: ƒ ()
+[[Prototype]]: Object
+
+at t.value (https://febbec6e-80dc-4e42-a888-580cf75e4177-00-25xyx93xruczq.worf.replit.dev/__replco/static/devtools/eruda/3.2.3/eruda.js:2:17465)
+at new t (https://febbec6e-80dc-4e42-a888-580cf75e4177-00-25xyx93xruczq.worf.replit.dev/__replco/static/devtools/eruda/3.2.3/eruda.js:2:12630)
+at t.value (https://febbec6e-80dc-4e42-a888-580cf75e4177-00-25xyx93xruczq.worf.replit.dev/__replco/static/devtools/eruda/3.2.3/eruda.js:2:32766)
+at https://febbec6e-80dc-4e42-a888-580cf75e4177-00-25xyx93xruczq.worf.replit.dev/__replco/static/devtools/eruda/3.2.3/eruda.js:2:34400

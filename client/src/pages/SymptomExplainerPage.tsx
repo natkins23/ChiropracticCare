@@ -33,16 +33,12 @@ const SymptomExplainerPage: React.FC = () => {
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.3 }}
             >
-              <Link href="/conditions">
-                <a className="text-blue-600 hover:text-blue-800 font-medium flex items-center underline">
-                  View Conditions We Treat
-                </a>
+              <Link href="/conditions" className="text-blue-600 hover:text-blue-800 font-medium flex items-center underline">
+                View Conditions We Treat
               </Link>
               <span className="text-gray-400 mx-2">•</span>
-              <Link href="/contact">
-                <a className="text-blue-600 hover:text-blue-800 font-medium flex items-center underline">
-                  Book an Appointment
-                </a>
+              <Link href="/contact" className="text-blue-600 hover:text-blue-800 font-medium flex items-center underline">
+                Book an Appointment
               </Link>
             </motion.div>
           </div>
