@@ -127,10 +127,10 @@ const Navbar = () => {
     setLocation("/");
     // Delay to allow for navigation to complete
     setTimeout(() => {
-      const quizElement = document.getElementById("contact");
-      if (quizElement) {
+      const contactElement = document.getElementById("contact");
+      if (contactElement) {
         const offset = 100; // Account for fixed header
-        const elementPosition = quizElement.getBoundingClientRect().top;
+        const elementPosition = contactElement.getBoundingClientRect().top;
         const offsetPosition = elementPosition + window.pageYOffset - offset;
 
         window.scrollTo({
@@ -146,6 +146,24 @@ const Navbar = () => {
     // Delay to allow for navigation to complete
     setTimeout(() => {
       const quizElement = document.getElementById("testimonials");
+      if (quizElement) {
+        const offset = 100; // Account for fixed header
+        const elementPosition = quizElement.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - offset;
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: "smooth",
+        });
+      }
+    }, 100);
+  };
+
+  const goToQuiz = () => {
+    setLocation("/");
+    // Delay to allow for navigation to complete
+    setTimeout(() => {
+      const quizElement = document.getElementById("quiz");
       if (quizElement) {
         const offset = 100; // Account for fixed header
         const elementPosition = quizElement.getBoundingClientRect().top;
@@ -233,15 +251,14 @@ const Navbar = () => {
                     </ul>
                   </div>
                   <div className="bg-gray-50 px-6 py-3 flex items-center justify-between">
-                    <Link
-                      href="/#quiz"
-                      onClick={() => scrollToSection("quiz")}
+                    <button
+                      onClick={goToQuiz}
                       className="flex items-center text-base font-medium text-primary hover:text-blue-700"
                     >
                       <ListChecks className="h-6 w-6 text-blue-500 mr-2" />
                       Take our Symptom Quiz{" "}
                       <ChevronRight className="ml-1 h-4 w-4" />
-                    </Link>
+                    </button>
                   </div>
                 </div>
               </div>

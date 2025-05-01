@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import Navbar from "@/components/Navbar";
-import QuizBanner from "@/components/QuizBanner";
 import TopBanner from "@/components/TopBanner";
 import Footer from "@/components/Footer";
 import LiveChat from "@/components/LiveChat";
@@ -19,9 +18,6 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
       <TopBanner onBookNowClick={() => setIsBookModalOpen(true)} />
 
       <Navbar />
-      
-      {/* Quiz Banner under the navbar */}
-      <QuizBanner />
 
       {/* Adjust padding to account for fixed banners & navbar heights */}
       <div className="pt-36 md:pt-40">{children}</div>

@@ -11,6 +11,7 @@ interface ConditionCard {
   title: string;
   description: string;
   imagePrompt: string;
+  imageSrc: string;
   link: string;
 }
 
@@ -22,6 +23,7 @@ const conditions: ConditionCard[] = [
       "We help relieve chronic and acute back pain using precise chiropractic techniques tailored to your body.",
     imagePrompt:
       "A person holding their lower back in pain, in a bright, clean clinic setting",
+    imageSrc: "/images/back.png",
     link: "/conditions/back-pain",
   },
   {
@@ -30,6 +32,7 @@ const conditions: ConditionCard[] = [
       "Reduce stiffness and discomfort with gentle neck adjustments and postural correction.",
     imagePrompt:
       "A woman touching her neck with discomfort, side profile, soft lighting",
+    imageSrc: "/images/neck.png",
     link: "/conditions/neck-pain",
   },
   {
@@ -38,6 +41,8 @@ const conditions: ConditionCard[] = [
       "Targeted adjustments and therapy to improve hip joint function and mobility.",
     imagePrompt:
       "A person stretching their hip, side lunge position, fitness studio background",
+    imageSrc: "/images/hip.png",
+
     link: "/conditions/hip-pain",
   },
   {
@@ -46,6 +51,8 @@ const conditions: ConditionCard[] = [
       "Chiropractic care and movement correction for painful or unstable knees.",
     imagePrompt:
       "Close-up of a person holding their knee while sitting on an exam table",
+    imageSrc: "/images/knee.png",
+
     link: "/conditions/knee-pain",
   },
   {
@@ -54,6 +61,8 @@ const conditions: ConditionCard[] = [
       "Stop radiating leg pain caused by sciatic nerve compression with personalized care.",
     imagePrompt:
       "An anatomical illustration of the sciatic nerve with glowing pain area",
+    imageSrc: "/images/sciatica.png",
+
     link: "/conditions/sciatica",
   },
   {
@@ -62,6 +71,7 @@ const conditions: ConditionCard[] = [
       "Alleviate chronic headaches rooted in spinal tension or neck strain.",
     imagePrompt:
       "Person with eyes closed holding forehead, in a calming wellness space",
+    imageSrc: "/images/head.png",
     link: "/conditions/tension-headaches",
   },
 ];
@@ -70,17 +80,14 @@ const ConditionsWeTreat = () => {
   const [isBookModalOpen, setIsBookModalOpen] = useState(false);
   const [location, setLocation] = useLocation();
 
-  // Function to navigate to home and scroll to quiz section after a small delay
   const goToHomeQuiz = () => {
     setLocation("/");
-    // Delay to allow for navigation to complete
     setTimeout(() => {
       const quizElement = document.getElementById("quiz");
       if (quizElement) {
-        const offset = 100; // Account for fixed header
+        const offset = 100;
         const elementPosition = quizElement.getBoundingClientRect().top;
         const offsetPosition = elementPosition + window.pageYOffset - offset;
-
         window.scrollTo({
           top: offsetPosition,
           behavior: "smooth",
@@ -88,16 +95,12 @@ const ConditionsWeTreat = () => {
       }
     }, 100);
   };
-  
 
-  // Variants for staggered animation
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-      },
+      transition: { staggerChildren: 0.1 },
     },
   };
 
@@ -106,11 +109,7 @@ const ConditionsWeTreat = () => {
     visible: {
       opacity: 1,
       y: 0,
-      transition: {
-        type: "spring",
-        stiffness: 300,
-        damping: 30,
-      },
+      transition: { type: "spring", stiffness: 300, damping: 30 },
     },
   };
 
@@ -159,13 +158,11 @@ const ConditionsWeTreat = () => {
                 className="bg-white rounded-md shadow-md p-6 space-y-4 hover:shadow-lg transition-shadow"
                 variants={cardVariants}
               >
-                {/* Note: In a real implementation, we would replace this with actual images */}
-                {/* Image Prompt: {condition.imagePrompt} */}
-                <div className="h-48 bg-gray-200 rounded-md flex items-center justify-center mb-4 overflow-hidden">
-                  <p className="text-gray-500 text-sm px-4 text-center">
-                    {condition.imagePrompt}
-                  </p>
-                </div>
+                <img
+                  src={condition.imageSrc}
+                  alt={condition.imagePrompt}
+                  className="h-48 w-full object-cover rounded-md mb-4"
+                />
 
                 <h2 className="text-xl font-bold text-gray-800">
                   {condition.title}
@@ -188,24 +185,21 @@ const ConditionsWeTreat = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
           >
-            <div>
-              <h2 className="text-2xl font-bold mb-4">
-                Not Sure What's Causing Your Pain?
-              </h2>
-              <button
-                onClick={() => setIsBookModalOpen(true)}
-                className="inline-flex justify-center items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-blue-500 bg-white hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white transition-colors"
-              >
-                <Calendar className="mr-1.5 h-5 w-5" />
-                Book an Appointment
-              </button>
-            </div>
+            <h2 className="text-2xl font-bold mb-4">
+              Not Sure What's Causing Your Pain?
+            </h2>
+            <button
+              onClick={() => setIsBookModalOpen(true)}
+              className="inline-flex justify-center items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-blue-500 bg-white hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white transition-colors"
+            >
+              <Calendar className="mr-1.5 h-5 w-5" />
+              Book an Appointment
+            </button>
             <p className="text-lg text-gray-600 mb-6 max-w-2xl mx-auto">
               Schedule a comprehensive consultation with our expert
               chiropractors to diagnose your condition and develop a
               personalized treatment plan.
             </p>
-
             <div className="flex flex-col sm:flex-row justify-center gap-4">
               <button
                 onClick={goToHomeQuiz}
