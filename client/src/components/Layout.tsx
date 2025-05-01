@@ -30,7 +30,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
     <div className="font-sans text-text-dark bg-white">
       {/* Top Banner */}
-      <div className="bg-blue-500 text-white py-2">
+      <div className="bg-blue-500 text-white py-2.5 fixed w-full top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col sm:flex-row items-center justify-between">
             <div className="flex items-center space-x-2 mb-3 sm:mb-0 text-center sm:text-left">
@@ -69,7 +69,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
       </div>
       
       <Navbar />
-      <div>
+      <div className="pt-32 md:pt-36">
         {children}
       </div>
       <Footer />

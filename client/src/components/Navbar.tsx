@@ -121,7 +121,7 @@ const Navbar = () => {
   return (
     <>
       <header
-        className={`fixed w-full top-0 z-50 bg-white ${isScrolled ? "shadow-md" : ""} transition-shadow`}
+        className={`fixed w-full top-11 sm:top-12 z-40 bg-white ${isScrolled ? "shadow-md" : ""} transition-shadow`}
       >
         <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-20">
