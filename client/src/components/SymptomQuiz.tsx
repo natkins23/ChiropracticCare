@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { CheckCircle, AlertCircle } from "lucide-react";
 import { z } from "zod";
+import { Link } from "wouter";
 
 // Extended to allow for more steps
 type QuizStep = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8;
@@ -433,6 +434,15 @@ const SymptomQuiz = () => {
                         <input type="hidden" name="pain-time-of-day" value={answers.painTimeOfDay} />
                         <input type="hidden" name="pain-limitations" value={answers.painLimitations} />
                         <input type="hidden" name="previous-chiro" value={answers.previousChiro} />
+                        
+                        <div className="mt-6 mb-4">
+                          <Link 
+                            href="/symptom-explainer" 
+                            className="text-blue-600 hover:text-blue-800 inline-block font-medium"
+                          >
+                            Try our AI Diagnosis Tool for more detailed insights → 
+                          </Link>
+                        </div>
                         
                         <motion.button
                           type="submit"

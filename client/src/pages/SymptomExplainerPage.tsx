@@ -17,7 +17,7 @@ const SymptomExplainerPage: React.FC = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
             >
-              Interactive Symptom Explainer
+              AI Diagnosis Tool
             </motion.h1>
             <motion.p 
               className="text-lg text-gray-700 mb-8 max-w-3xl mx-auto"
@@ -45,7 +45,7 @@ const SymptomExplainerPage: React.FC = () => {
         </div>
       </div>
 
-      {/* Symptom Explainer Tool */}
+      {/* AI Diagnosis Tool */}
       <div className="py-12 bg-gray-50">
         <SymptomExplainer />
       </div>
@@ -53,7 +53,7 @@ const SymptomExplainerPage: React.FC = () => {
       {/* How It Works Section */}
       <div className="py-16 bg-white">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12">How The Symptom Explainer Works</h2>
+          <h2 className="text-3xl font-bold text-center mb-12">How The AI Diagnosis Tool Works</h2>
           
           <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
             <motion.div 
@@ -110,7 +110,7 @@ const SymptomExplainerPage: React.FC = () => {
           <div className="max-w-3xl mx-auto bg-yellow-50 border border-yellow-200 rounded-xl p-6">
             <h3 className="text-lg font-semibold mb-3 text-yellow-700">Important Disclaimer</h3>
             <p className="text-gray-700 mb-4">
-              The Symptom Explainer is designed to provide general information and insights about symptoms but is not intended to replace professional medical advice, diagnosis, or treatment.
+              The AI Diagnosis Tool is designed to provide general information and insights about symptoms but is not intended to replace professional medical advice, diagnosis, or treatment.
             </p>
             <p className="text-gray-700">
               Always consult with a qualified healthcare provider for proper evaluation of your specific condition. In case of emergency or severe symptoms, please seek immediate medical attention.
