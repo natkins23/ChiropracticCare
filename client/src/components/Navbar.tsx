@@ -5,10 +5,8 @@ import {
   ChevronDown,
   ChevronRight,
   Calendar,
-  MessageSquare,
 } from "lucide-react";
 import { Link, useLocation } from "wouter";
-import ContactNowModal from "./ContactNowModal";
 import BookNowModal from "./BookNowModal";
 
 // Data for the two dropdown menus
@@ -34,7 +32,6 @@ const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
-  const [isContactModalOpen, setIsContactModalOpen] = useState(false);
   const [isBookModalOpen, setIsBookModalOpen] = useState(false);
   const [mobileSections, setMobileSections] = useState<{
     conditions: boolean;
@@ -301,16 +298,7 @@ const Navbar = () => {
               </Link>
 
               {/* CTA Buttons */}
-              <div className="flex items-center pl-2 space-x-2">
-                {/* Contact Now Button */}
-                <button
-                  onClick={() => setIsContactModalOpen(true)}
-                  className="flex items-center bg-primary text-white hover:bg-blue-700 font-medium text-sm lg:text-base px-4 py-2 rounded-md transition-colors duration-200"
-                >
-                  <MessageSquare className="mr-1 h-4 w-4" />
-                  Contact Now
-                </button>
-
+              <div className="flex items-center pl-2">
                 {/* Book Now Button */}
                 <button
                   onClick={() => setIsBookModalOpen(true)}
@@ -324,15 +312,6 @@ const Navbar = () => {
 
             {/* Mobile menu button */}
             <div className="md:hidden flex items-center space-x-2">
-              {/* Mobile Contact Now Button */}
-              <button
-                onClick={() => setIsContactModalOpen(true)}
-                className="flex items-center bg-primary text-white hover:bg-blue-700 font-medium text-sm px-3 py-2 rounded-md transition-colors duration-200"
-              >
-                <MessageSquare className="mr-1 h-4 w-4" />
-                Contact
-              </button>
-
               {/* Mobile Book Now Button */}
               <button
                 onClick={() => setIsBookModalOpen(true)}
@@ -479,12 +458,6 @@ const Navbar = () => {
           </div>
         </div>
       </header>
-
-      {/* Contact Now Modal */}
-      <ContactNowModal
-        open={isContactModalOpen}
-        onOpenChange={setIsContactModalOpen}
-      />
 
       {/* Book Now Modal */}
       <BookNowModal open={isBookModalOpen} onOpenChange={setIsBookModalOpen} />
