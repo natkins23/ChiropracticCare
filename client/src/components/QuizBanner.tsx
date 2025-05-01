@@ -26,11 +26,8 @@ const QuizBanner = () => {
           transition={{ duration: 0.3 }}
         >
           <div className="flex items-center space-x-2">
-            <Tag className="h-5 w-5" />
             <p className="text-sm md:text-base font-medium">
-              Take our symptom quiz and receive a{" "}
-              <span className="font-bold">10% OFF</span> coupon for your first
-              visit!
+              <span className="font-bold">Explore Our Services</span> - Chiropractic Care, Massage Therapy, Corrective Exercises & More
             </p>
           </div>
 

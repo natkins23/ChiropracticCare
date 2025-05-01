@@ -1,5 +1,5 @@
 import React from 'react';
-import { Phone, Calendar } from 'lucide-react';
+import { Phone, Calendar, Tag } from 'lucide-react';
 
 interface TopBannerProps {
   onBookNowClick: () => void;
@@ -11,9 +11,21 @@ const TopBanner: React.FC<TopBannerProps> = ({ onBookNowClick }) => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col sm:flex-row items-center justify-between">
           <div className="flex items-center space-x-2 mb-3 sm:mb-0 text-center sm:text-left">
+            <Tag className="h-5 w-5 hidden sm:block" />
             <p className="text-sm md:text-base">
-              <span className="font-medium">Professional Chiropractic Care in </span>
-              <span className="font-bold">Pasadena, CA</span>
+              <span className="font-medium">Take our </span>
+              <button 
+                onClick={() => {
+                  const quizElement = document.getElementById('quiz');
+                  if (quizElement) {
+                    quizElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                  }
+                }}
+                className="font-bold underline hover:text-blue-200 transition-colors"
+              >
+                symptom quiz
+              </button>
+              <span className="font-medium"> and receive a <span className="font-bold">10% OFF</span> coupon for your first visit!</span>
             </p>
           </div>
           
