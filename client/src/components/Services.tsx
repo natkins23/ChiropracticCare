@@ -129,11 +129,34 @@ const Services = () => {
               />
             </div>
             <div className="p-6">
-              <h3 className="text-xl font-semibold mb-3">Graston Soft Tissue Release</h3>
+              <h3 className="text-xl font-semibold mb-3">Graston Technique</h3>
               <p className="text-gray-600 mb-4">
                 We use the Graston Technique to break up scar tissue and adhesions in muscles. It helps restore normal motion and relieve chronic discomfort.
               </p>
               <a href="/services/graston-technique" className="text-primary hover:text-blue-700 font-medium inline-flex items-center">
+                Learn more
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </a>
+            </div>
+          </div>
+          
+          {/* Service 6 */}
+          <div className="bg-white rounded-lg shadow-md overflow-hidden transition-all hover:shadow-xl hover:scale-105 animate-slide">
+            <div className="h-48 overflow-hidden">
+              <img 
+                src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
+                alt="Spinal decompression therapy" 
+                className="w-full h-full object-cover"
+              />
+            </div>
+            <div className="p-6">
+              <h3 className="text-xl font-semibold mb-3">Spinal Decompression</h3>
+              <p className="text-gray-600 mb-4">
+                Non-surgical spinal decompression therapy gently stretches the spine to relieve pressure on compressed discs and nerves, offering relief for herniated discs and sciatica.
+              </p>
+              <a href="/services/spinal-decompression" className="text-primary hover:text-blue-700 font-medium inline-flex items-center">
                 Learn more
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
