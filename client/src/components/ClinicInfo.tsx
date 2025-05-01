@@ -107,7 +107,7 @@ const ClinicInfo = () => {
                 </a>
                 
                 <a 
-                  href={`https://www.openstreetmap.org/directions?from=&to=${location.lat}%2C${location.lng}#map=15/${location.lat}/${location.lng}`}
+                  href={`https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(location.address)}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex justify-center items-center w-full px-6 py-3 border border-blue-500 text-base font-medium rounded-md shadow-sm text-blue-500 bg-white hover:bg-blue-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors"
@@ -129,10 +129,10 @@ const ClinicInfo = () => {
             <div className="rounded-lg overflow-hidden shadow-md h-96 bg-gray-100 relative">
               <iframe
                 ref={mapRef}
-                src="https://www.openstreetmap.org/export/embed.html?bbox=-118.16585540771486%2C34.13909775056255%2C-118.12304496765138%2C34.15606005239286&amp;layer=mapnik&amp;marker=34.1478%2C-118.1445"
+                src={`https://www.google.com/maps/embed/v1/place?key=${import.meta.env.VITE_GOOGLE_API_KEY}&q=${encodeURIComponent(location.address)}&zoom=15`}
                 className="absolute inset-0 w-full h-full opacity-100 transition-opacity duration-500 z-10"
                 loading="lazy"
-                title="OpenStreetMap showing clinic location"
+                title="Google Maps showing clinic location"
                 allowFullScreen
               ></iframe>
 
@@ -146,10 +146,6 @@ const ClinicInfo = () => {
                   </p>
                 </div>
               </div>
-            </div>
-            
-            <div className="mt-4 text-sm text-gray-500 italic">
-              This map uses OpenStreetMap which is free and doesn't require an API key.
             </div>
           </motion.div>
         </div>

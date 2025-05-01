@@ -290,12 +290,12 @@ const Navbar = () => {
               >
                 Symptom Explainer
               </Link>
-              <Link
-                href="/#contact"
+              <button
+                onClick={() => scrollToSection("contact")}
                 className="text-gray-700 hover:text-primary font-medium text-base lg:text-lg px-3 py-2 rounded-md hover:bg-gray-50"
               >
                 Contact
-              </Link>
+              </button>
 
               {/* CTA Buttons */}
               <div className="flex items-center pl-2">
@@ -449,12 +449,12 @@ const Navbar = () => {
             >
               Symptom Explainer
             </Link>
-            <Link
-              href="/#contact"
-              className="text-gray-700 hover:text-primary font-medium text-lg px-3 py-2 rounded-md hover:bg-gray-50"
+            <button
+              onClick={() => scrollToSection("contact")}
+              className="text-left w-full text-gray-700 hover:text-primary font-medium text-lg px-3 py-2 rounded-md hover:bg-gray-50"
             >
               Contact
-            </Link>
+            </button>
           </div>
         </div>
       </header>
