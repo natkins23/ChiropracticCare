@@ -297,29 +297,11 @@ const Navbar = () => {
                 Contact
               </button>
 
-              {/* CTA Buttons */}
-              <div className="flex items-center pl-2">
-                {/* Book Now Button */}
-                <button
-                  onClick={() => setIsBookModalOpen(true)}
-                  className="flex items-center bg-orange-500 text-white hover:bg-orange-600 font-medium text-sm lg:text-base px-4 py-2 rounded-md transition-colors duration-200"
-                >
-                  <Calendar className="mr-1 h-4 w-4" />
-                  Book Now
-                </button>
-              </div>
+              {/* CTA Buttons - Moved to top banner */}
             </div>
 
             {/* Mobile menu button */}
             <div className="md:hidden flex items-center space-x-2">
-              {/* Mobile Book Now Button */}
-              <button
-                onClick={() => setIsBookModalOpen(true)}
-                className="flex items-center bg-orange-500 text-white hover:bg-orange-600 font-medium text-sm px-3 py-2 rounded-md transition-colors duration-200"
-              >
-                <Calendar className="mr-1 h-4 w-4" />
-                Book
-              </button>
 
               {/* Mobile menu toggle */}
               <button
