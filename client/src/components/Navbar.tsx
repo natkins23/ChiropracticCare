@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { Menu, X, ChevronDown, ChevronRight, Calendar, MessageSquare } from "lucide-react";
 import { Link, useLocation } from "wouter";
 import ContactNowModal from "./ContactNowModal";
+import BookNowModal from "./BookNowModal";
 
 // Data for the two dropdown menus
 const conditionsData = [
@@ -39,6 +40,7 @@ const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const [isContactModalOpen, setIsContactModalOpen] = useState(false);
+  const [isBookModalOpen, setIsBookModalOpen] = useState(false);
   const [mobileSections, setMobileSections] = useState<{
     conditions: boolean;
     therapies: boolean;
@@ -315,13 +317,13 @@ const Navbar = () => {
                 </button>
                 
                 {/* Book Now Button */}
-                <Link
-                  href="/#contact"
+                <button
+                  onClick={() => setIsBookModalOpen(true)}
                   className="flex items-center bg-orange-500 text-white hover:bg-orange-600 font-medium text-sm lg:text-base px-4 py-2 rounded-md transition-colors duration-200"
                 >
                   <Calendar className="mr-1 h-4 w-4" />
                   Book Now
-                </Link>
+                </button>
               </div>
             </div>
 
@@ -337,12 +339,13 @@ const Navbar = () => {
               </button>
               
               {/* Mobile Book Now Button */}
-              <Link
-                href="/#contact"
+              <button
+                onClick={() => setIsBookModalOpen(true)}
                 className="flex items-center bg-orange-500 text-white hover:bg-orange-600 font-medium text-sm px-3 py-2 rounded-md transition-colors duration-200"
               >
-                Book Now
-              </Link>
+                <Calendar className="mr-1 h-4 w-4" />
+                Book
+              </button>
 
               {/* Mobile menu toggle */}
               <button
@@ -486,6 +489,12 @@ const Navbar = () => {
       <ContactNowModal 
         open={isContactModalOpen} 
         onOpenChange={setIsContactModalOpen} 
+      />
+      
+      {/* Book Now Modal */}
+      <BookNowModal 
+        open={isBookModalOpen} 
+        onOpenChange={setIsBookModalOpen} 
       />
     </>
   );
