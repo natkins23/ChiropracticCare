@@ -1,7 +1,7 @@
 import React, { useEffect, useMemo } from 'react';
 import { useLocation, Link } from 'wouter';
 import { motion } from 'framer-motion';
-import { Calendar, Clock, ArrowLeft, Facebook, Twitter, Mail, Linkedin } from 'lucide-react';
+import { Calendar, Clock, ArrowLeft, ArrowRight, Facebook, Twitter, Mail, Linkedin } from 'lucide-react';
 import Layout from '../components/Layout';
 import { Button } from '../components/ui/button';
 
