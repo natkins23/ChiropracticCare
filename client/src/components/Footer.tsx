@@ -1,5 +1,4 @@
-import { Instagram, Facebook } from 'lucide-react';
-
+import { FaYelp, FaGoogle } from "react-icons/fa";
 const Footer = () => {
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
@@ -20,23 +19,35 @@ const Footer = () => {
       <div className="max-w-6xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
           <div>
-            <h3 className="text-xl font-bold mb-4">Dr. James Carter Chiropractic</h3>
-            <p className="text-gray-400 mb-6">Effective, gentle chiropractic care tailored to your needs.</p>
+            <h3 className="text-xl font-bold mb-4">
+              Dr. James Carter Chiropractic
+            </h3>
+            <p className="text-gray-400 mb-6">
+              Effective, gentle chiropractic care tailored to your needs.
+            </p>
             <div className="flex space-x-4">
-              <a href="#" className="text-gray-400 hover:text-white" aria-label="Instagram">
-                <Instagram className="h-6 w-6" />
+              <a
+                href="#"
+                className="text-gray-400 hover:text-white"
+                aria-label="Yelp"
+              >
+                <FaYelp className="h-6 w-6" />
               </a>
-              <a href="#" className="text-gray-400 hover:text-white" aria-label="Facebook">
-                <Facebook className="h-6 w-6" />
+              <a
+                href="#"
+                className="text-gray-400 hover:text-white"
+                aria-label="Google"
+              >
+                <FaGoogle className="h-6 w-6" />
               </a>
             </div>
           </div>
-          
+
           <div>
             <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
             <ul className="space-y-2">
               <li>
-                <button 
+                <button
                   onClick={() => scrollToSection("home")}
                   className="text-gray-400 hover:text-white"
                 >
@@ -44,7 +55,7 @@ const Footer = () => {
                 </button>
               </li>
               <li>
-                <button 
+                <button
                   onClick={() => scrollToSection("about")}
                   className="text-gray-400 hover:text-white"
                 >
@@ -52,7 +63,7 @@ const Footer = () => {
                 </button>
               </li>
               <li>
-                <button 
+                <button
                   onClick={() => scrollToSection("services")}
                   className="text-gray-400 hover:text-white"
                 >
@@ -60,7 +71,7 @@ const Footer = () => {
                 </button>
               </li>
               <li>
-                <button 
+                <button
                   onClick={() => scrollToSection("testimonials")}
                   className="text-gray-400 hover:text-white"
                 >
@@ -68,7 +79,7 @@ const Footer = () => {
                 </button>
               </li>
               <li>
-                <button 
+                <button
                   onClick={() => scrollToSection("blog")}
                   className="text-gray-400 hover:text-white"
                 >
@@ -76,7 +87,7 @@ const Footer = () => {
                 </button>
               </li>
               <li>
-                <button 
+                <button
                   onClick={() => scrollToSection("faq")}
                   className="text-gray-400 hover:text-white"
                 >
@@ -84,7 +95,7 @@ const Footer = () => {
                 </button>
               </li>
               <li>
-                <button 
+                <button
                   onClick={() => scrollToSection("contact")}
                   className="text-gray-400 hover:text-white"
                 >
@@ -93,7 +104,7 @@ const Footer = () => {
               </li>
             </ul>
           </div>
-          
+
           <div>
             <h3 className="text-lg font-semibold mb-4">Hours</h3>
             <ul className="space-y-2 text-gray-400">
@@ -112,13 +123,21 @@ const Footer = () => {
             </ul>
           </div>
         </div>
-        
+
         <div className="border-t border-gray-800 mt-10 pt-8 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-gray-400 text-sm mb-4 md:mb-0">© 2025 Dr. James Carter Chiropractic. All rights reserved.</p>
+          <p className="text-gray-400 text-sm mb-4 md:mb-0">
+            © 2025 Dr. James Carter Chiropractic. All rights reserved.
+          </p>
           <div className="flex space-x-6">
-            <a href="#" className="text-gray-400 hover:text-white text-sm">Privacy Policy</a>
-            <a href="#" className="text-gray-400 hover:text-white text-sm">Terms of Service</a>
-            <a href="#" className="text-gray-400 hover:text-white text-sm">Accessibility</a>
+            <a href="#" className="text-gray-400 hover:text-white text-sm">
+              Privacy Policy
+            </a>
+            <a href="#" className="text-gray-400 hover:text-white text-sm">
+              Terms of Service
+            </a>
+            <a href="#" className="text-gray-400 hover:text-white text-sm">
+              Accessibility
+            </a>
           </div>
         </div>
       </div>

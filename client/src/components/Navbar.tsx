@@ -1,5 +1,14 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Menu, X, ChevronDown, ChevronRight, Calendar } from "lucide-react";
+import {
+  Menu,
+  X,
+  ChevronDown,
+  ChevronRight,
+  Calendar,
+  ListChecks,
+} from "lucide-react";
+import { FaRobot } from "react-icons/fa";
+
 import { Link, useLocation } from "wouter";
 import BookNowModal from "./BookNowModal";
 
@@ -188,16 +197,11 @@ const Navbar = () => {
                   <div className="bg-gray-50 px-6 py-3 flex items-center justify-between">
                     <Link
                       href="/#quiz"
+                      onClick={() => scrollToSection("quiz")}
                       className="flex items-center text-base font-medium text-primary hover:text-blue-700"
                     >
-                      Take our symptom quiz{" "}
-                      <ChevronRight className="ml-1 h-4 w-4" />
-                    </Link>
-                    <Link
-                      href="/symptom-explainer"
-                      className="flex items-center text-base font-medium text-primary hover:text-blue-700"
-                    >
-                      Symptom explainer{" "}
+                      <ListChecks className="h-6 w-6 text-blue-500 mr-2" />
+                      Take our Symptom Quiz{" "}
                       <ChevronRight className="ml-1 h-4 w-4" />
                     </Link>
                   </div>
@@ -222,7 +226,7 @@ const Navbar = () => {
                     );
                   }}
                 >
-                  <span>Therapies & Treatments</span>
+                  <span>Therapies</span>
                   <ChevronDown
                     className={`ml-1 h-5 w-5 transition-transform ${activeDropdown === "therapies" ? "rotate-180" : ""}`}
                   />
@@ -237,9 +241,6 @@ const Navbar = () => {
                   }`}
                 >
                   <div className="p-6">
-                    <h3 className="text-lg font-bold text-gray-900 mb-4 border-b pb-2">
-                      Therapies & Treatments
-                    </h3>
                     <ul className="grid grid-cols-1 gap-y-2">
                       {therapiesData.map((therapy, idx) => (
                         <li key={idx}>
@@ -253,6 +254,16 @@ const Navbar = () => {
                       ))}
                     </ul>
                   </div>
+                  <div className="bg-gray-50 px-6 py-3 flex items-center justify-between">
+                    <Link
+                      href="/ai-diagnosis-tool"
+                      className="flex items-center text-base font-medium text-primary hover:text-blue-700"
+                    >
+                      <FaRobot className="h-6 w-6 text-blue-500 mr-2" />
+                      AI Diagnosis Tool{" "}
+                      <ChevronRight className="ml-1 h-4 w-4" />
+                    </Link>
+                  </div>
                 </div>
               </div>
 
@@ -260,7 +271,7 @@ const Navbar = () => {
                 href="/#testimonials"
                 className="text-gray-700 hover:text-primary font-medium text-base lg:text-lg px-3 py-2 rounded-md hover:bg-gray-50"
               >
-                Testimonials
+                Our Clients
               </Link>
               <Link
                 href="/blog"
@@ -400,7 +411,7 @@ const Navbar = () => {
               href="/#testimonials"
               className="text-gray-700 hover:text-primary font-medium text-lg px-3 py-2 rounded-md hover:bg-gray-50"
             >
-              Testimonials
+              Our Clients
             </Link>
             <Link
               href="/blog"
@@ -418,7 +429,7 @@ const Navbar = () => {
               onClick={() => scrollToSection("contact")}
               className="text-left w-full text-gray-700 hover:text-primary font-medium text-lg px-3 py-2 rounded-md hover:bg-gray-50"
             >
-              Contact
+              Contact us
             </button>
           </div>
         </div>

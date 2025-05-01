@@ -1,8 +1,10 @@
 import { motion } from "framer-motion";
 import { Helmet } from "react-helmet";
-import { ChevronRight } from "lucide-react";
+import { ChevronRight, Calendar } from "lucide-react";
 import Layout from "@/components/Layout";
-import { Link } from "wouter";
+import { Link, useLocation } from "wouter";
+import { useState } from "react";
+import BookNowModal from "@/components/BookNowModal";
 
 // Define the data structure for condition cards
 interface ConditionCard {
@@ -65,6 +67,28 @@ const conditions: ConditionCard[] = [
 ];
 
 const ConditionsWeTreat = () => {
+  const [isBookModalOpen, setIsBookModalOpen] = useState(false);
+  const [location, setLocation] = useLocation();
+
+  // Function to navigate to home and scroll to quiz section after a small delay
+  const goToHomeQuiz = () => {
+    setLocation('/');
+    // Delay to allow for navigation to complete
+    setTimeout(() => {
+      const quizElement = document.getElementById('quiz');
+      if (quizElement) {
+        const offset = 100; // Account for fixed header
+        const elementPosition = quizElement.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - offset;
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: "smooth",
+        });
+      }
+    }, 100);
+  };
+
   // Variants for staggered animation
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -167,12 +191,13 @@ const ConditionsWeTreat = () => {
               <h2 className="text-2xl font-bold mb-4">
                 Not Sure What's Causing Your Pain?
               </h2>
-              <Link
-                href="/contact"
+              <button
+                onClick={() => setIsBookModalOpen(true)}
                 className="inline-flex justify-center items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-blue-500 bg-white hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white transition-colors"
               >
-                Schedule Adjustment
-              </Link>
+                <Calendar className="mr-1.5 h-5 w-5" />
+                Book an Appointment
+              </button>
             </div>
             <p className="text-lg text-gray-600 mb-6 max-w-2xl mx-auto">
               Schedule a comprehensive consultation with our expert
@@ -181,12 +206,12 @@ const ConditionsWeTreat = () => {
             </p>
 
             <div className="flex flex-col sm:flex-row justify-center gap-4">
-              <Link
-                href="/#quiz"
+              <button
+                onClick={goToHomeQuiz}
                 className="inline-flex justify-center items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-blue-500 hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors"
               >
                 Take Our Symptom Quiz
-              </Link>
+              </button>
               <Link
                 href="/ai-diagnosis-tool"
                 className="inline-flex justify-center items-center px-6 py-3 border border-blue-500 text-base font-medium rounded-md shadow-sm text-blue-500 bg-white hover:bg-blue-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors"
@@ -197,6 +222,8 @@ const ConditionsWeTreat = () => {
           </motion.div>
         </div>
       </div>
+      {/* Book Now Modal */}
+      <BookNowModal open={isBookModalOpen} onOpenChange={setIsBookModalOpen} />
     </Layout>
   );
 };
