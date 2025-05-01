@@ -6,6 +6,12 @@ import { Input } from './ui/input';
 import { Textarea } from './ui/textarea';
 import { Slider } from './ui/slider';
 import { Label } from './ui/label';
+import ReactMarkdown from 'react-markdown';
+import { z } from 'zod';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { useForm } from 'react-hook-form';
+import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from "./ui/form";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "./ui/select";
 
 const bodyParts = [
   { id: 'head', name: 'Head', coords: { x: 50, y: 10 }, radius: 8 },
@@ -35,24 +41,42 @@ const bodyParts = [
   { id: 'foot-right', name: 'Right Foot', coords: { x: 57, y: 95 }, radius: 5 },
 ];
 
-interface SymptomFormData {
-  symptoms: string;
-  painLevel: number;
-  duration: string;
-}
+// Zod schema for form validation
+const formSchema = z.object({
+  symptoms: z.string().min(5, { message: "Please describe your symptoms in more detail" }),
+  painLevel: z.number().min(1).max(10),
+  duration: z.string().min(1, { message: "Please select how long you've had these symptoms" })
+});
+
+type FormData = z.infer<typeof formSchema>;
+
+const durationOptions = [
+  { value: "less-than-week", label: "Less than a week" },
+  { value: "1-4-weeks", label: "1-4 weeks" },
+  { value: "1-3-months", label: "1-3 months" },
+  { value: "3-6-months", label: "3-6 months" },
+  { value: "6-12-months", label: "6-12 months" },
+  { value: "over-1-year", label: "Over 1 year" },
+  { value: "over-5-years", label: "Over 5 years" },
+];
 
 const SymptomExplainer: React.FC = () => {
   const [selectedBodyPart, setSelectedBodyPart] = useState<string | null>(null);
-  const [formData, setFormData] = useState<SymptomFormData>({
-    symptoms: '',
-    painLevel: 5,
-    duration: '',
-  });
   const [analysis, setAnalysis] = useState<string>('');
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [bodyPartInfo, setBodyPartInfo] = useState<string>('');
   const [bodyPartInfoLoading, setBodyPartInfoLoading] = useState<boolean>(false);
   const [activeStep, setActiveStep] = useState<'select' | 'describe' | 'results'>('select');
+
+  // Initialize react-hook-form with Zod validation
+  const form = useForm<FormData>({
+    resolver: zodResolver(formSchema),
+    defaultValues: {
+      symptoms: '',
+      painLevel: 5,
+      duration: '',
+    },
+  });
 
   const handleBodyPartClick = async (bodyPartId: string, bodyPartName: string) => {
     setSelectedBodyPart(bodyPartId);
@@ -70,17 +94,7 @@ const SymptomExplainer: React.FC = () => {
     }
   };
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
-  };
-
-  const handleSliderChange = (value: number[]) => {
-    setFormData(prev => ({ ...prev, painLevel: value[0] }));
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
+  const onSubmit = async (data: FormData) => {
     setIsLoading(true);
     setActiveStep('results');
 
@@ -88,11 +102,14 @@ const SymptomExplainer: React.FC = () => {
       const selectedPart = bodyParts.find(part => part.id === selectedBodyPart);
       if (!selectedPart) throw new Error('No body part selected');
 
+      // Get the label for the duration instead of the value
+      const durationLabel = durationOptions.find(option => option.value === data.duration)?.label || data.duration;
+
       const result = await analyzeSymptoms(
         selectedPart.name,
-        formData.symptoms,
-        formData.painLevel,
-        formData.duration
+        data.symptoms,
+        data.painLevel,
+        durationLabel
       );
 
       setAnalysis(result);
@@ -106,11 +123,7 @@ const SymptomExplainer: React.FC = () => {
 
   const resetForm = () => {
     setSelectedBodyPart(null);
-    setFormData({
-      symptoms: '',
-      painLevel: 5,
-      duration: '',
-    });
+    form.reset();
     setAnalysis('');
     setBodyPartInfo('');
     setActiveStep('select');
@@ -197,8 +210,8 @@ const SymptomExplainer: React.FC = () => {
               {bodyPartInfoLoading ? (
                 <div className="animate-pulse h-32 bg-gray-100 rounded"></div>
               ) : (
-                <div className="bg-blue-50 p-4 rounded-lg text-sm">
-                  <p className="text-gray-700">{bodyPartInfo}</p>
+                <div className="bg-blue-50 p-4 rounded-lg text-sm prose prose-sm max-w-none">
+                  <ReactMarkdown>{bodyPartInfo}</ReactMarkdown>
                 </div>
               )}
             </div>
@@ -234,78 +247,110 @@ const SymptomExplainer: React.FC = () => {
           )}
 
           {activeStep === 'describe' && (
-            <motion.form 
-              onSubmit={handleSubmit}
+            <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5 }}
               className="space-y-6"
             >
-              <div>
-                <Label htmlFor="symptoms" className="text-lg font-medium">Describe your symptoms</Label>
-                <Textarea
-                  id="symptoms"
-                  name="symptoms"
-                  placeholder="Describe what you're feeling (e.g., sharp pain, dull ache, stiffness, etc.)"
-                  value={formData.symptoms}
-                  onChange={handleInputChange}
-                  className="w-full mt-2"
-                  required
-                  rows={4}
-                />
-              </div>
-
-              <div>
-                <Label htmlFor="painLevel" className="text-lg font-medium">Pain Level (1-10)</Label>
-                <div className="pt-4 pb-2">
-                  <Slider
-                    defaultValue={[formData.painLevel]}
-                    max={10}
-                    min={1}
-                    step={1}
-                    onValueChange={handleSliderChange}
+              <Form {...form}>
+                <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+                  <FormField
+                    control={form.control}
+                    name="symptoms"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel className="text-lg font-medium">Describe your symptoms</FormLabel>
+                        <FormControl>
+                          <Textarea
+                            placeholder="Describe what you're feeling (e.g., sharp pain, dull ache, stiffness, etc.)"
+                            className="w-full mt-2"
+                            rows={4}
+                            {...field}
+                          />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
                   />
-                </div>
-                <div className="flex justify-between text-sm text-gray-500">
-                  <span>Mild (1)</span>
-                  <span>Moderate (5)</span>
-                  <span>Severe (10)</span>
-                </div>
-                <div className="text-center mt-1 font-medium">
-                  Current selection: {formData.painLevel}
-                </div>
-              </div>
 
-              <div>
-                <Label htmlFor="duration" className="text-lg font-medium">How long have you had these symptoms?</Label>
-                <Input
-                  id="duration"
-                  name="duration"
-                  placeholder="e.g., 2 days, 3 weeks, 6 months"
-                  value={formData.duration}
-                  onChange={handleInputChange}
-                  className="w-full mt-2"
-                  required
-                />
-              </div>
+                  <FormField
+                    control={form.control}
+                    name="painLevel"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel className="text-lg font-medium">Pain Level (1-10)</FormLabel>
+                        <FormControl>
+                          <div className="pt-4 pb-2">
+                            <Slider
+                              defaultValue={[field.value]}
+                              max={10}
+                              min={1}
+                              step={1}
+                              onValueChange={(vals) => field.onChange(vals[0])}
+                            />
+                          </div>
+                        </FormControl>
+                        <div className="flex justify-between text-sm text-gray-500">
+                          <span>Mild (1)</span>
+                          <span>Moderate (5)</span>
+                          <span>Severe (10)</span>
+                        </div>
+                        <div className="text-center mt-1 font-medium">
+                          Current selection: {field.value}
+                        </div>
+                      </FormItem>
+                    )}
+                  />
 
-              <div className="pt-4 flex gap-4">
-                <Button 
-                  type="button" 
-                  variant="outline" 
-                  onClick={resetForm}
-                  className="flex-1"
-                >
-                  Back
-                </Button>
-                <Button 
-                  type="submit"
-                  className="flex-1"
-                >
-                  Get Analysis
-                </Button>
-              </div>
-            </motion.form>
+                  <FormField
+                    control={form.control}
+                    name="duration"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel className="text-lg font-medium">How long have you had these symptoms?</FormLabel>
+                        <Select
+                          onValueChange={field.onChange}
+                          defaultValue={field.value}
+                        >
+                          <FormControl>
+                            <SelectTrigger>
+                              <SelectValue placeholder="Select duration" />
+                            </SelectTrigger>
+                          </FormControl>
+                          <SelectContent>
+                            {durationOptions.map((option) => (
+                              <SelectItem key={option.value} value={option.value}>
+                                {option.label}
+                              </SelectItem>
+                            ))}
+                          </SelectContent>
+                        </Select>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+
+                  <div className="pt-4 flex gap-4">
+                    <Button 
+                      type="button" 
+                      variant="outline" 
+                      onClick={resetForm}
+                      className="flex-1"
+                    >
+                      Back
+                    </Button>
+                    <Button 
+                      type="submit"
+                      className="flex-1"
+                      disabled={!form.formState.isValid}
+                    >
+                      Get Analysis
+                    </Button>
+                  </div>
+                </form>
+              </Form>
+            </motion.div>
           )}
 
           {activeStep === 'results' && (
@@ -328,7 +373,7 @@ const SymptomExplainer: React.FC = () => {
                   <div className="bg-white border border-gray-200 rounded-lg p-5 mb-6">
                     <h4 className="font-medium mb-2 text-blue-700">AI-Generated Analysis</h4>
                     <div className="prose max-w-none">
-                      <p className="whitespace-pre-line">{analysis}</p>
+                      <ReactMarkdown>{analysis}</ReactMarkdown>
                     </div>
                   </div>
                   
