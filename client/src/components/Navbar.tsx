@@ -28,13 +28,6 @@ const therapiesData = [
   { name: "Shockwave Therapy", link: "/services/shockwave-therapy" },
   { name: "Graston Technique", link: "/services/graston-technique" },
   { name: "Spinal Decompression", link: "/services/spinal-decompression" },
-  {
-    name: "Service Areas (Pasadena, Altadena, San Marino)",
-    link: "/#services",
-  },
-  { name: "Same-Day Appointments", link: "/#services" },
-  { name: "Personal Injury Cases", link: "/#services" },
-  { name: "Family Chiropractic", link: "/#services" },
 ];
 
 const Navbar = () => {
