@@ -1,5 +1,12 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Menu, X, ChevronDown, ChevronRight, Calendar, MessageSquare } from "lucide-react";
+import {
+  Menu,
+  X,
+  ChevronDown,
+  ChevronRight,
+  Calendar,
+  MessageSquare,
+} from "lucide-react";
 import { Link, useLocation } from "wouter";
 import ContactNowModal from "./ContactNowModal";
 import BookNowModal from "./BookNowModal";
@@ -11,14 +18,7 @@ const conditionsData = [
   { name: "Hip Pain", link: "/conditions/hip-pain" },
   { name: "Knee Pain", link: "/conditions/knee-pain" },
   { name: "Sciatica", link: "/conditions/sciatica" },
-  { name: "Carpal Tunnel", link: "/conditions/carpal-tunnel" },
   { name: "Tension Headaches", link: "/conditions/tension-headaches" },
-  { name: "Whiplash", link: "/conditions/whiplash" },
-  { name: "Pinched Nerve", link: "/conditions/pinched-nerve" },
-  { name: "Cervical Disc Herniation", link: "/conditions/cervical-disc-herniation" },
-  { name: "Pediatric", link: "/conditions/pediatric" },
-  { name: "Auto Accident Injuries", link: "/conditions/auto-accident" },
-  { name: "Sports Injury", link: "/conditions/sports-injury" },
 ];
 
 const therapiesData = [
@@ -29,7 +29,10 @@ const therapiesData = [
   { name: "Corrective Exercises", link: "/#services" },
   { name: "Spinal Decompression", link: "/#services" },
   { name: "Shockwave Therapy", link: "/#services" },
-  { name: "Service Areas (Pasadena, Altadena, San Marino)", link: "/#services" },
+  {
+    name: "Service Areas (Pasadena, Altadena, San Marino)",
+    link: "/#services",
+  },
   { name: "Same-Day Appointments", link: "/#services" },
   { name: "Personal Injury Cases", link: "/#services" },
   { name: "Family Chiropractic", link: "/#services" },
@@ -315,7 +318,7 @@ const Navbar = () => {
                   <MessageSquare className="mr-1 h-4 w-4" />
                   Contact Now
                 </button>
-                
+
                 {/* Book Now Button */}
                 <button
                   onClick={() => setIsBookModalOpen(true)}
@@ -337,7 +340,7 @@ const Navbar = () => {
                 <MessageSquare className="mr-1 h-4 w-4" />
                 Contact
               </button>
-              
+
               {/* Mobile Book Now Button */}
               <button
                 onClick={() => setIsBookModalOpen(true)}
@@ -486,16 +489,13 @@ const Navbar = () => {
       </header>
 
       {/* Contact Now Modal */}
-      <ContactNowModal 
-        open={isContactModalOpen} 
-        onOpenChange={setIsContactModalOpen} 
+      <ContactNowModal
+        open={isContactModalOpen}
+        onOpenChange={setIsContactModalOpen}
       />
-      
+
       {/* Book Now Modal */}
-      <BookNowModal 
-        open={isBookModalOpen} 
-        onOpenChange={setIsBookModalOpen} 
-      />
+      <BookNowModal open={isBookModalOpen} onOpenChange={setIsBookModalOpen} />
     </>
   );
 };

@@ -326,9 +326,9 @@ const BlogPage = () => {
                 </div>
                 <h3 className="text-2xl font-bold mb-3">{featuredPost.title}</h3>
                 <p className="text-gray-600 mb-5">{featuredPost.excerpt}</p>
-                <a href="#" className="inline-flex items-center text-blue-600 font-semibold hover:text-blue-800">
+                <Link href={`/blog/${featuredPost.id}`} className="inline-flex items-center text-blue-600 font-semibold hover:text-blue-800">
                   Read Full Article <ArrowRight className="ml-2 h-5 w-5" />
-                </a>
+                </Link>
               </div>
             </div>
           </motion.div>
@@ -363,12 +363,12 @@ const BlogPage = () => {
                     </div>
                     <h3 className="text-xl font-semibold mb-2">{post.title}</h3>
                     <p className="text-gray-600 mb-4 line-clamp-3">{post.excerpt}</p>
-                    <a 
-                      href="#" 
+                    <Link 
+                      href={`/blog/${post.id}`} 
                       className="inline-flex items-center text-blue-500 hover:text-blue-700 font-medium"
                     >
                       Read more <ArrowRight className="h-4 w-4 ml-1" />
-                    </a>
+                    </Link>
                   </div>
                 </div>
               ))}
