@@ -17,7 +17,7 @@ const QuizBanner = () => {
   };
 
   return (
-    <div className="bg-blue-500/90 text-white py-2 fixed top-20 w-full z-40 shadow-md">
+    <div className="bg-blue-500/90 text-white py-2 fixed top-20 w-full z-30 shadow-md">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           className="flex items-center justify-center md:justify-between"
