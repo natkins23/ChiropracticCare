@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { CheckCircle, AlertCircle } from "lucide-react";
 import { z } from "zod";
@@ -80,6 +80,17 @@ const SymptomQuiz = () => {
 
   // Track animation direction
   const [direction, setDirection] = useState(0);
+  
+  // Update the message field when reaching the final step
+  useEffect(() => {
+    if (currentStep === 8) {
+      const summaryMessage = `Symptoms summary:\n- Pain location: ${answers.painLocation}\n- Duration: ${answers.painDuration}\n- Intensity: ${answers.painIntensity}\n- Frequency: ${answers.painFrequency}\n- Triggers: ${answers.painTriggers}\n- Time of day: ${answers.painTimeOfDay}\n- Limitations: ${answers.painLimitations}\n- Previous chiropractic care: ${answers.previousChiro}`;
+      setFormData(prev => ({
+        ...prev,
+        message: summaryMessage
+      }));
+    }
+  }, [currentStep, answers]);
 
   const handleOptionClick = (value: string) => {
     setDirection(1); // Going forward

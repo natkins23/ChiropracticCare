@@ -1,11 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import {
-  Menu,
-  X,
-  ChevronDown,
-  ChevronRight,
-  Calendar,
-} from "lucide-react";
+import { Menu, X, ChevronDown, ChevronRight, Calendar } from "lucide-react";
 import { Link, useLocation } from "wouter";
 import BookNowModal from "./BookNowModal";
 
@@ -157,7 +151,7 @@ const Navbar = () => {
                     href="/conditions"
                     className="text-gray-700 hover:text-primary font-medium text-base lg:text-lg px-3 py-2 rounded-md hover:bg-gray-50"
                   >
-                    <span>Conditions We Treat</span>
+                    <span>Conditions</span>
                   </Link>
                   <button
                     className="ml-1 text-gray-700 hover:text-primary focus:outline-none"
@@ -185,9 +179,6 @@ const Navbar = () => {
                   }`}
                 >
                   <div className="p-6">
-                    <h3 className="text-lg font-bold text-gray-900 mb-4 border-b pb-2">
-                      Conditions We Treat
-                    </h3>
                     <ul className="grid grid-cols-1 gap-y-2">
                       {conditionsData.map((condition, idx) => (
                         <li key={idx}>
@@ -302,7 +293,6 @@ const Navbar = () => {
 
             {/* Mobile menu button */}
             <div className="md:hidden flex items-center space-x-2">
-
               {/* Mobile menu toggle */}
               <button
                 aria-label="Toggle mobile menu"
@@ -343,7 +333,7 @@ const Navbar = () => {
                 className="w-full flex justify-between items-center text-gray-700 hover:text-primary font-medium text-lg px-3 py-2 rounded-md hover:bg-gray-50 focus:outline-none"
                 onClick={() => toggleMobileSection("conditions")}
               >
-                <span>Conditions We Treat</span>
+                <span>Conditions</span>
                 <ChevronDown
                   className={`h-6 w-6 transition-transform duration-200 ${mobileSections.conditions ? "rotate-180" : ""}`}
                 />
