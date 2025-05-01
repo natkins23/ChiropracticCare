@@ -437,7 +437,7 @@ const SymptomQuiz = () => {
                         
                         <div className="mt-6 mb-4">
                           <Link 
-                            href="/symptom-explainer" 
+                            href="/ai-diagnosis-tool" 
                             className="text-blue-600 hover:text-blue-800 inline-block font-medium"
                           >
                             Try our AI Diagnosis Tool for more detailed insights → 

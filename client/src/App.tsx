@@ -35,6 +35,7 @@ function Router() {
       <Route path="/blog" component={BlogPage} />
       <Route path="/blog/:id" component={BlogPostPage} />
       <Route path="/symptom-explainer" component={SymptomExplainerPage} />
+      <Route path="/ai-diagnosis-tool" component={SymptomExplainerPage} />
       
       {/* Service Routes */}
       <Route path="/services/chiropractic-care" component={ChiropracticCarePage} />

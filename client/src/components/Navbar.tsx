@@ -276,10 +276,10 @@ const Navbar = () => {
                 Blog
               </Link>
               <Link
-                href="/symptom-explainer"
+                href="/ai-diagnosis-tool"
                 className="text-gray-700 hover:text-primary font-medium text-base lg:text-lg px-3 py-2 rounded-md hover:bg-gray-50"
               >
-                Symptom Explainer
+                AI Diagnosis Tool
               </Link>
               <button
                 onClick={() => scrollToSection("contact")}
@@ -359,10 +359,10 @@ const Navbar = () => {
                   ))}
                   <div className="border-t border-gray-100 mt-2 pt-2">
                     <Link
-                      href="/symptom-explainer"
+                      href="/ai-diagnosis-tool"
                       className="block text-blue-600 hover:text-blue-800 hover:bg-gray-50 text-base py-2 px-4 rounded-md font-medium"
                     >
-                      Try our Symptom Explainer
+                      Try our AI Diagnosis Tool
                     </Link>
                   </div>
                 </div>
@@ -416,10 +416,10 @@ const Navbar = () => {
               Blog
             </Link>
             <Link
-              href="/symptom-explainer"
+              href="/ai-diagnosis-tool"
               className="text-gray-700 hover:text-primary font-medium text-lg px-3 py-2 rounded-md hover:bg-gray-50"
             >
-              Symptom Explainer
+              AI Diagnosis Tool
             </Link>
             <button
               onClick={() => scrollToSection("contact")}
