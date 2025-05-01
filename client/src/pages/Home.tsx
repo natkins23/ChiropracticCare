@@ -15,6 +15,9 @@ import { checkAnimatedElements } from "@/lib/animation";
 
 const Home = () => {
   useEffect(() => {
+    window.scrollTo({ top: 0 });
+  }, []);
+  useEffect(() => {
     // Initial check for animations
     checkAnimatedElements();
 

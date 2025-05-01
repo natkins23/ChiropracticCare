@@ -43,6 +43,7 @@ const Navbar = () => {
     conditions: false,
     therapies: false,
   });
+  const [location, setLocation] = useLocation();
 
   const conditionsRef = useRef<HTMLDivElement>(null);
   const therapiesRef = useRef<HTMLDivElement>(null);
@@ -119,6 +120,43 @@ const Navbar = () => {
       ...mobileSections,
       [section]: !mobileSections[section],
     });
+  };
+
+  // Function to navigate to home and scroll to quiz section after a small delay
+  const goToHomeContact = () => {
+    setLocation("/");
+    // Delay to allow for navigation to complete
+    setTimeout(() => {
+      const quizElement = document.getElementById("contact");
+      if (quizElement) {
+        const offset = 100; // Account for fixed header
+        const elementPosition = quizElement.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - offset;
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: "smooth",
+        });
+      }
+    }, 100);
+  };
+  // Function to navigate to home and scroll to quiz section after a small delay
+  const goToHomeClients = () => {
+    setLocation("/");
+    // Delay to allow for navigation to complete
+    setTimeout(() => {
+      const quizElement = document.getElementById("testimonials");
+      if (quizElement) {
+        const offset = 100; // Account for fixed header
+        const elementPosition = quizElement.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - offset;
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: "smooth",
+        });
+      }
+    }, 100);
   };
 
   return (
@@ -267,12 +305,14 @@ const Navbar = () => {
                 </div>
               </div>
 
-              <Link
-                href="/#testimonials"
-                className="text-gray-700 hover:text-primary font-medium text-base lg:text-lg px-3 py-2 rounded-md hover:bg-gray-50"
-              >
-                Our Clients
-              </Link>
+              <div>
+                <button
+                  onClick={goToHomeClients}
+                  className="text-left w-full text-gray-700 hover:text-primary font-medium text-lg px-3 py-2 rounded-md hover:bg-gray-50"
+                >
+                  Our Clients
+                </button>
+              </div>
               <Link
                 href="/blog"
                 className="text-gray-700 hover:text-primary font-medium text-base lg:text-lg px-3 py-2 rounded-md hover:bg-gray-50"
@@ -285,12 +325,14 @@ const Navbar = () => {
               >
                 AI Diagnosis Tool
               </Link>
-              <button
-                onClick={() => scrollToSection("contact")}
-                className="text-gray-700 hover:text-primary font-medium text-base lg:text-lg px-3 py-2 rounded-md hover:bg-gray-50"
-              >
-                Contact
-              </button>
+              <div>
+                <button
+                  onClick={goToHomeContact}
+                  className="text-left w-full text-gray-700 hover:text-primary font-medium text-lg px-3 py-2 rounded-md hover:bg-gray-50"
+                >
+                  Contact
+                </button>
+              </div>
 
               {/* CTA Buttons - Moved to top banner */}
             </div>
@@ -407,12 +449,14 @@ const Navbar = () => {
               </div>
             </div>
 
-            <Link
-              href="/#testimonials"
-              className="text-gray-700 hover:text-primary font-medium text-lg px-3 py-2 rounded-md hover:bg-gray-50"
-            >
-              Our Clients
-            </Link>
+            <div>
+              <button
+                onClick={goToHomeClients}
+                className="text-left w-full text-gray-700 hover:text-primary font-medium text-lg px-3 py-2 rounded-md hover:bg-gray-50"
+              >
+                Our Clients
+              </button>
+            </div>
             <Link
               href="/blog"
               className="text-gray-700 hover:text-primary font-medium text-lg px-3 py-2 rounded-md hover:bg-gray-50"
@@ -425,12 +469,14 @@ const Navbar = () => {
             >
               AI Diagnosis Tool
             </Link>
-            <button
-              onClick={() => scrollToSection("contact")}
-              className="text-left w-full text-gray-700 hover:text-primary font-medium text-lg px-3 py-2 rounded-md hover:bg-gray-50"
-            >
-              Contact us
-            </button>
+            <div>
+              <button
+                onClick={goToHomeContact}
+                className="text-left w-full text-gray-700 hover:text-primary font-medium text-lg px-3 py-2 rounded-md hover:bg-gray-50"
+              >
+                Contact
+              </button>
+            </div>
           </div>
         </div>
       </header>

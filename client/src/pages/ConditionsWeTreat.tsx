@@ -72,10 +72,10 @@ const ConditionsWeTreat = () => {
 
   // Function to navigate to home and scroll to quiz section after a small delay
   const goToHomeQuiz = () => {
-    setLocation('/');
+    setLocation("/");
     // Delay to allow for navigation to complete
     setTimeout(() => {
-      const quizElement = document.getElementById('quiz');
+      const quizElement = document.getElementById("quiz");
       if (quizElement) {
         const offset = 100; // Account for fixed header
         const elementPosition = quizElement.getBoundingClientRect().top;
@@ -88,6 +88,7 @@ const ConditionsWeTreat = () => {
       }
     }, 100);
   };
+  
 
   // Variants for staggered animation
   const containerVariants = {
