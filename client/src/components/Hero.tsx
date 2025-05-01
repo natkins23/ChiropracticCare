@@ -1,6 +1,9 @@
 import { motion } from "framer-motion";
+import { useState } from "react"; // Import useState
 
 const Hero = () => {
+  const [isBookModalOpen, setIsBookModalOpen] = useState(false); // Add state for modal
+
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
@@ -31,7 +34,7 @@ const Hero = () => {
             </p>
             <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
               <button 
-                onClick={() => scrollToSection("contact")}
+                onClick={() => setIsBookModalOpen(true)} // Open modal on click
                 className="inline-flex justify-center items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-blue-500 hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors"
               >
                 Book Now
@@ -61,6 +64,9 @@ const Hero = () => {
         </div>
       </div>
     </section>
+
+    {/* BookNowModal component (placeholder - needs implementation) */}
+    <BookNowModal open={isBookModalOpen} onOpenChange={setIsBookModalOpen} /> 
   );
 };
 
