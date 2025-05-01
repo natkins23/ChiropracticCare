@@ -22,13 +22,12 @@ const conditionsData = [
 ];
 
 const therapiesData = [
-  { name: "Chiropractic Care", link: "/#services" },
-  { name: "Massage Therapy", link: "/#services" },
-  { name: "Myofascial Release", link: "/#services" },
-  { name: "Graston Soft Tissue Release", link: "/#services" },
-  { name: "Corrective Exercises", link: "/#services" },
-  { name: "Spinal Decompression", link: "/#services" },
-  { name: "Shockwave Therapy", link: "/#services" },
+  { name: "Chiropractic Care", link: "/services/chiropractic-care" },
+  { name: "Massage Therapy", link: "/services/massage-therapy" },
+  { name: "Corrective Exercises", link: "/services/corrective-exercises" },
+  { name: "Shockwave Therapy", link: "/services/shockwave-therapy" },
+  { name: "Graston Technique", link: "/services/graston-technique" },
+  { name: "Spinal Decompression", link: "/services/spinal-decompression" },
   {
     name: "Service Areas (Pasadena, Altadena, San Marino)",
     link: "/#services",

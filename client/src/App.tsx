@@ -14,6 +14,14 @@ import BlogPage from "./pages/BlogPage";
 import BlogPostPage from "./pages/BlogPostPage";
 import SymptomExplainerPage from "./pages/SymptomExplainerPage";
 
+// Service Pages
+import ChiropracticCarePage from "./pages/ChiropracticCarePage";
+import MassageTherapyPage from "./pages/MassageTherapyPage";
+import CorrectiveExercisesPage from "./pages/CorrectiveExercisesPage";
+import ShockwaveTherapyPage from "./pages/ShockwaveTherapyPage";
+import GrastonTechniquePage from "./pages/GrastonTechniquePage";
+import SpinalDecompressionPage from "./pages/SpinalDecompressionPage";
+
 function Router() {
   return (
     <Switch>
@@ -27,6 +35,15 @@ function Router() {
       <Route path="/blog" component={BlogPage} />
       <Route path="/blog/:id" component={BlogPostPage} />
       <Route path="/symptom-explainer" component={SymptomExplainerPage} />
+      
+      {/* Service Routes */}
+      <Route path="/services/chiropractic-care" component={ChiropracticCarePage} />
+      <Route path="/services/massage-therapy" component={MassageTherapyPage} />
+      <Route path="/services/corrective-exercises" component={CorrectiveExercisesPage} />
+      <Route path="/services/shockwave-therapy" component={ShockwaveTherapyPage} />
+      <Route path="/services/graston-technique" component={GrastonTechniquePage} />
+      <Route path="/services/spinal-decompression" component={SpinalDecompressionPage} />
+      
       <Route component={NotFound} />
     </Switch>
   );
